@@ -23,7 +23,11 @@ A class can extends the **BluetoothService** class, it abstract the interaction 
 
 Here is a simple example to turn on/off the back lights with python
 
+(start python using `python -m asyncio` to use await)
 ```python
+from bleak import BleakScanner
+from bleak import BleakClient
+
 # Get the device
 device = [device for device in await BleakScanner.discover() if device.name == "Clock Service"]
 assert len(device) == 1
