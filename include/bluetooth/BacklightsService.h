@@ -12,8 +12,9 @@
 #define PATTERN_UUID       "bb5e995d-5863-4aa1-bafe-0e6a9fd4aa73"
 #define COLOR_UUID         "bb5e995d-5863-4aa1-bafe-0e6a9fd4aa74"
 
-class BacklightsService: BluetoothService {
+class BacklightsService: public BluetoothService {
 public:
+    using BluetoothService::initService;
     BacklightsService() : BluetoothService("bb5e995d-5863-4aa1-bafe-0e6a9fd4aa70", "BacklightsService") {}
 
     virtual void setPower(uint8_t*) = 0;
@@ -51,9 +52,14 @@ public:
             setPattern(pCharacteristic->getData());
         else if(rxUUID == COLOR_UUID)
             setColor(pCharacteristic->getData());
+        else
+            Serial.println("[BacklightsService] The UUID was not recognized.");
     }
 
+private:
     void addCharacteristics() override {
+        Serial.println("[BacklightsService] addCharacteristics");
+
         createCharacteristic(POWER_UUID, BLECharacteristic::PROPERTY_WRITE | BLECharacteristic::PROPERTY_READ);
         createCharacteristic(INTENSITY_UUID, BLECharacteristic::PROPERTY_WRITE | BLECharacteristic::PROPERTY_READ);
         createCharacteristic(PATTERN_UUID, BLECharacteristic::PROPERTY_WRITE | BLECharacteristic::PROPERTY_READ);

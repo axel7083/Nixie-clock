@@ -10,7 +10,7 @@ void BLEManager::loop() {
 
         // Making a delay but without blocking the thread.
         if(millis() - timestamp > 500) {
-            pServer->startAdvertising(); // restart advertising
+            BLEDevice::startAdvertising();
             Serial.println("start advertising");
             oldDeviceConnected = deviceConnected;
             timestamp = millis();
@@ -28,6 +28,18 @@ void BLEManager::begin(uint8_t* config) {
     // Create the BLE Server
     pServer = BLEDevice::createServer();
     pServer->setCallbacks(this);
+}
+
+void BLEManager::addService(BluetoothService* service) {
+    if(pServer == nullptr)
+        return;
+
+    BLEService *pService = service->initService(pServer);
+    pService->start();
+
+    BLEAdvertising *pAdvertising = BLEDevice::getAdvertising();
+    pAdvertising->addServiceUUID(pService->getUUID());
+    pAdvertising->setScanResponse(true);
 }
 
 void BLEManager::onConnect(BLEServer *pServer) {

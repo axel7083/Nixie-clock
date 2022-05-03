@@ -4,7 +4,18 @@
 
 #include "managers/BackLightsManager.h"
 
-void BackLightsManager::setPower(uint8_t *uint8) {
+void BackLightsManager::setPower(uint8_t *value) {
+
+    Serial.printf("Value %d\n", *value);
+    
+    if(*value == 0) {
+        Serial.println("Set pattern dark");
+        setPattern(BackLightsManager::Patterns::dark);
+    }
+    else {
+        Serial.println("Set pattern rainbow");
+        setPattern(BackLightsManager::Patterns::rainbow);
+    }
     //TODO
 }
 
@@ -13,6 +24,7 @@ uint16_t BackLightsManager::getPower() {
 }
 
 void BackLightsManager::setIntensity(uint8_t *uint8) {
+    Serial.println("[BackLightsManager] Set intensity");
     config->intensity = *uint8;
 }
 
@@ -25,7 +37,7 @@ void BackLightsManager::setPattern(uint8_t *uint8) {
 }
 
 void BackLightsManager::setPattern(BackLightsManager::Patterns pattern) {
-    this->config->pattern = uint8_t(pattern);
+    this->config->pattern = pattern;
     pattern_needs_init = true;
 }
 
@@ -43,6 +55,7 @@ uint32_t BackLightsManager::getColor() {
 }
 
 void BackLightsManager::begin(uint8_t* config) {
+
     this->config = (Storage::Config::Backlights *) config;
 
     if (this->config->is_valid != Storage::valid) {
@@ -62,6 +75,7 @@ void BackLightsManager::loop() {
         if (pattern_needs_init) {
             clear();
             show();
+            pattern_needs_init = false;
         }
     }
     else if (config->pattern == constant) {
@@ -69,6 +83,7 @@ void BackLightsManager::loop() {
             setBrightness(0xFF >> max_intensity - config->intensity - 1);
             fill(phaseToColor(config->color_phase));
             show();
+            pattern_needs_init = false;
         }
     }
     else if (config->pattern == rainbow) {
@@ -80,7 +95,7 @@ void BackLightsManager::loop() {
     else if (config->pattern == breath) {
         breathPattern();
     }
-    pattern_needs_init = false;
+    
 }
 
 uint16_t BackLightsManager::getColorPhase() {
@@ -129,6 +144,7 @@ void BackLightsManager::rainbowPattern() {
 void BackLightsManager::breathPattern() {
     if (pattern_needs_init) {
         fill(phaseToColor(config->color_phase));
+        pattern_needs_init = false;
     }
     // https://sean.voisen.org/blog/2011/10/breathing-led-with-arduino/
     // Avoid a 0 value as it shuts off the LEDs and we have to re-initialize.
@@ -144,6 +160,7 @@ void BackLightsManager::breathPattern() {
 void BackLightsManager::pulsePattern() {
     if (pattern_needs_init) {
         fill(phaseToColor(config->color_phase));
+        pattern_needs_init = false;
     }
     float pulse_length_millis = (60.0f * 1000) / config->breath_per_min;
     float val = 1 + abs(sin(2 * M_PI * millis() / pulse_length_millis)) * 254;

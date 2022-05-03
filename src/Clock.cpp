@@ -40,6 +40,13 @@ void Clock::begin() {
     Serial.println("[Clock] WifiManager begin");
     wifiManager.begin(reinterpret_cast<uint8_t *>(&(storage.config.wifi)));
 
+    Serial.println("[Clock] BLE begin");
+    bleManager.begin(nullptr);
+
+    // Now let us add the services to our Bluetooth manager and start advertising
+    bleManager.addService(&backLightsManager);
+    bleManager.startAdvertising();
+
     // Save the config (useful when first boot)
     saveConfig();
 }
@@ -50,7 +57,7 @@ void Clock::saveConfig() {
 
 void Clock::loop() {
     backLightsManager.loop();
-    //bleManager.loop();
+    bleManager.loop();
     buttonsManager.loop();
     timeManager.loop();
     screensManager.loop();

@@ -8,6 +8,7 @@
 #include <BLEServer.h>
 #include <BLEDevice.h>
 #include <Arduino.h>
+#include "bluetooth/BluetoothService.h"
 #include "Manager.h"
 
 class BLEManager: public BLEServerCallbacks, public Manager {
@@ -20,6 +21,12 @@ public:
     void onDisconnect(BLEServer *pServer) override;
 
     bool deviceConnected = false;
+
+    BLEServer * getServer() { return pServer; };
+
+    void addService(BluetoothService* service);
+
+    void startAdvertising() { BLEDevice::startAdvertising(); };
 
 private:
     BLEServer *pServer = nullptr;

@@ -18,15 +18,19 @@ public:
     BluetoothService(const char *uuid,const char *serviceName) : UUID(uuid) {
         this->serviceName = serviceName;
     }
-    virtual void initService(BLEServer *server) {
+    BLEService *initService(BLEServer *server) {
+        Serial.println("[BluetoothService] initService");
+
         service = server->createService(UUID);
         addCharacteristics();
-    };
+        return service;
+    }
 
 protected:
     BLEService *service = nullptr;
 protected:
     void createCharacteristic(const char* uuid, uint32_t properties) {
+        Serial.println("[BluetoothService] createCharacteristic");
         BLECharacteristic * characteristic = service->createCharacteristic(
                 uuid,
                 properties
