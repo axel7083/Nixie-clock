@@ -30,3 +30,16 @@ void FilesManager::list_files() {
     }
     Serial.printf("LITTLEFS totalBytes=%zu, usedBytes=%zu, free bytes=%zu\n", LITTLEFS.totalBytes(), LITTLEFS.usedBytes(), LITTLEFS.totalBytes() - LITTLEFS.usedBytes());
 }
+
+void FilesManager::init_upload(const char* path) {
+    fsUploadFile = LITTLEFS.open( path, "w");
+}
+
+void FilesManager::handle_data(uint8_t *buf, size_t size) {
+    fsUploadFile.write(buf, size);
+}
+
+void FilesManager::close_upload() {
+    fsUploadFile.close();
+    list_files();
+}

@@ -41,3 +41,21 @@ assert await client.connect()
 # Send 0 value to address POWER_UUID
 await client.write_gatt_char("bb5e995d-5863-4aa1-bafe-0e6a9fd4aa71", b'\x00', response=True)
 ```
+
+# Upload a new images
+
+First you need a bmp image in 135x240.
+
+````python
+# Init the upload for the number 0
+await client.write_gatt_char("c2285d2f-44c5-4abb-af86-9d159f351081", "/0.bmp".encode(), response=True)
+
+with open(f"data/0.bmp", 'rb') as f:
+    bytes = f.read(512)
+    while bytes:
+        await client.write_gatt_char("c2285d2f-44c5-4abb-af86-9d159f351082",
+                                    len(bytes).to_bytes(2, byteorder='big') + bytes, response=True)
+        bytes = f.read(512)
+
+await client.write_gatt_char("c2285d2f-44c5-4abb-af86-9d159f351083", b'close', response=True)
+```

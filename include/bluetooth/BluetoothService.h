@@ -13,7 +13,6 @@
 
 class BluetoothService: public BLECharacteristicCallbacks {
 public:
-    BLEUUID UUID;
     const char *serviceName;
     BluetoothService(const char *uuid,const char *serviceName) : UUID(uuid) {
         this->serviceName = serviceName;
@@ -27,8 +26,8 @@ public:
     }
 
 protected:
+    BLEUUID UUID;
     BLEService *service = nullptr;
-protected:
     void createCharacteristic(const char* uuid, uint32_t properties) {
         Serial.println("[BluetoothService] createCharacteristic");
         BLECharacteristic * characteristic = service->createCharacteristic(

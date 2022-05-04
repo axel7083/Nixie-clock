@@ -5,14 +5,22 @@
 #ifndef CLOCK2_0_FILESMANAGER_H
 #define CLOCK2_0_FILESMANAGER_H
 #include "Manager.h"
+#include "bluetooth/UploadService.h"
 #include <LITTLEFS.h>
 
-class FilesManager: public Manager {
+class FilesManager: public Manager, public UploadService {
 public:
     void begin(uint8_t* config) override;
     void loop() override;
     void list_files();
+
+private:
+    void init_upload(const char* path) override;
+    void handle_data(uint8_t *buf, size_t size) override;
+    void close_upload() override;
+    File fsUploadFile ;
 };
+
 
 
 #endif //CLOCK2_0_FILESMANAGER_H
