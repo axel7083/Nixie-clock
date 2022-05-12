@@ -46,7 +46,7 @@ await client.write_gatt_char("bb5e995d-5863-4aa1-bafe-0e6a9fd4aa71", b'\x00', re
 
 First you need a bmp image in 135x240.
 
-````python
+```python
 # Init the upload for the number 0
 await client.write_gatt_char("c2285d2f-44c5-4abb-af86-9d159f351081", "/0.bmp".encode(), response=True)
 
