@@ -42,7 +42,7 @@ assert await client.connect()
 await client.write_gatt_char("bb5e995d-5863-4aa1-bafe-0e6a9fd4aa71", b'\x00', response=True)
 ```
 
-# Upload a new images
+## Upload a new images
 
 First you need a bmp image in 135x240.
 
@@ -58,4 +58,10 @@ with open(f"data/0.bmp", 'rb') as f:
         bytes = f.read(512)
 
 await client.write_gatt_char("c2285d2f-44c5-4abb-af86-9d159f351083", b'close', response=True)
+```
+
+## Set wifi credentials
+
+```python
+await client.write_gatt_char("c1eac326-9ded-4148-90c1-6289cdbf5103", "ssid;password".encode(), response=True)
 ```
