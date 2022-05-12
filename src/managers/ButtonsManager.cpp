@@ -18,6 +18,8 @@ void ButtonsManager::loop() {
             // Toggle backlights
             Serial.println("Pressing power button");
             Clock::getInstance().backLightsManager.toggle();
+            Clock::getInstance().screensManager.toggleScreens();
+            
             //Clock::getInstance().wifiManager.fetch(); //this was a test
             break;
         case Button::state::up_long_edge: // Long press button release

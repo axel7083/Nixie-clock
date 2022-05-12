@@ -32,7 +32,7 @@ void Clock::begin() {
     Serial.println("[Clock] ScreenManager begin");
     screensManager.begin(nullptr);
 
-    screensManager.StartLogging();
+    //screensManager.StartLogging();
     //screensManager.logs("Hello world");
     //delay(30000);
     screensManager.state = ScreensManager::State::CLOCK;

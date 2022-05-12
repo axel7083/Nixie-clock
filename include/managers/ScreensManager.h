@@ -13,9 +13,12 @@ class ScreensManager: public Manager {
 public:
     enum State {
         LOGS = 0,
-        CLOCK = 1
+        CLOCK = 1,
+        OFF,
     };
     State state = State::LOGS;
+ 
+    void toggleScreens() { if(state == State::OFF) state = State::CLOCK; else state = State::OFF; };
 
     void begin(uint8_t* config) override;
     void loop() override;

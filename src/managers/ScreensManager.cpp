@@ -12,6 +12,20 @@ void ScreensManager::begin(uint8_t* config) {
 }
 
 void ScreensManager::loop() {
+
+    switch (state)
+    {
+    case State::OFF:
+        if(tfts.isEnabled())
+            tfts.disableAllDisplays();
+        break;
+    case State::CLOCK:
+    case State::LOGS:
+        if(!tfts.isEnabled())
+            tfts.enableAllDisplays();
+        break;
+    }
+
     if (state == State::CLOCK && millis() > timeForMore + 1000)
     {
         timeForMore = millis();
