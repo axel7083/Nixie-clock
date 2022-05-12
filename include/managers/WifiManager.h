@@ -28,11 +28,10 @@ public:
 
 
 private:
-    void connect(uint8_t *uint8) override;
-
     Storage::Config::Wifi *config;
     u_long ms_time;
     uint16_t interval = 30000;
+    void parse(std::string value) override;
 };
 
 

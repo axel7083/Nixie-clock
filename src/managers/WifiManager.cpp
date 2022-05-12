@@ -3,6 +3,7 @@
 //
 
 #include "managers/WifiManager.h"
+#include "Clock.h"
 
 
 void WifiManager::begin(uint8_t* config) {
@@ -60,7 +61,12 @@ void WifiManager::loop() {
         else {
             Status nStatus = (WiFiClass::status() == WL_CONNECTED)? CONNECTED:DISCONNECTED;
             if(nStatus != status /*&& getService() != nullptr*/) {
-                Serial.printf("[WifiManager] Status %d\n", uint8_t(nStatus));
+                Serial.printf("[WifiManager] Status changed %d\n", uint8_t(nStatus));
+
+                if(nStatus == WL_CONNECTED) {
+                    //save credentials
+                    Clock::getInstance().saveConfig();
+                }
                 //BLECharacteristic *c = getService()->getCharacteristic(NOTIFY_UUID);
                 //c->setValue(uint8_t(nStatus)?"{\"connected:\":1}":"{\"connected:\":0}"); //json format
                 //c->notify();
@@ -84,7 +90,25 @@ void WifiManager::ScanAsync() {
     interval = 1000; //Reduce interval when scanning
 }
 
-void WifiManager::connect(uint8_t *uint8) {
-    printf("This is not implemented yet.");
-    //?
+void WifiManager::parse(std::string value) {
+    char ssid[value.length()];
+    char pwd[value.length()];
+
+    int splitIndex = -1;
+    for(int i = 0 ; i < value.length(); i++)
+        if(value[i] == ';'){
+            splitIndex = i;
+            break;
+        }
+
+    if(splitIndex == -1)
+    {
+        Serial.print("The format is not respected. Must be 'ssid;password'\n");
+        return; 
+    }
+    
+    strncpy(&ssid[0], &value[0], splitIndex);
+    ssid[splitIndex] = '\0';
+    strcpy(&pwd[0], &value[splitIndex]+1); //copy password
+    connect(ssid, pwd);
 }

@@ -15,8 +15,8 @@ class WifiService: public BluetoothService {
 public:
     WifiService() : BluetoothService("c1eac326-9ded-4148-90c1-6289cdbf5100", "WifiService") {}
 
-    virtual void connect(char* ssid, char *passphrase) = 0;
-    virtual void ScanAsync() = 0;
+    virtual void connect(char* ssid, char *passphrase);
+    virtual void ScanAsync();
 
     void onRead(BLECharacteristic *pCharacteristic) override {
         // Impossible
@@ -28,7 +28,7 @@ public:
         if(rxUUID == SCAN_UUID)
             ScanAsync();
         else if(rxUUID == CONNECT_UUID)
-            connect(pCharacteristic->getData());
+            parse(pCharacteristic->getValue());
     }
 
     void addCharacteristics() override {
@@ -40,7 +40,7 @@ public:
 
     BLEService* getService() {return service; }
 private:
-    virtual void connect(uint8_t*) = 0; // This function will be responsible to parse the data received.
+    virtual void parse(std::string value);
 };
 
 
