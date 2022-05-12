@@ -85,5 +85,6 @@ void WifiManager::ScanAsync() {
 }
 
 void WifiManager::connect(uint8_t *uint8) {
+    printf("This is not implemented yet.");
     //?
 }

@@ -11,7 +11,7 @@
 #include <ArduinoJson.h>
 #include <HTTPClient.h>
 
-class WifiManager: public Manager, WifiService {
+class WifiManager: public Manager, public WifiService {
 public:
     WifiManager(): status(Status::DISCONNECTED),config(nullptr), ms_time(0) {}
 

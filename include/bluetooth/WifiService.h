@@ -32,7 +32,8 @@ public:
     }
 
     void addCharacteristics() override {
-        createCharacteristic(NOTIFY_UUID, BLECharacteristic::PROPERTY_NOTIFY);
+        // The Notify feature has not been tested yet.
+        //createCharacteristic(NOTIFY_UUID, BLECharacteristic::PROPERTY_NOTIFY);
         createCharacteristic(SCAN_UUID, BLECharacteristic::PROPERTY_WRITE);
         createCharacteristic(CONNECT_UUID, BLECharacteristic::PROPERTY_WRITE);
     }

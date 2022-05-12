@@ -4,6 +4,7 @@
 
 #include "Clock.h"
 
+// The clock is a singleton
 Clock &Clock::getInstance() {
     static Clock instance;
     return instance;
@@ -46,6 +47,7 @@ void Clock::begin() {
     // Now let us add the services to our Bluetooth manager and start advertising
     bleManager.addService(&backLightsManager);
     bleManager.addService(&filesManager);
+    bleManager.addService(&wifiManager);
     bleManager.startAdvertising();
 
     // Save the config (useful when first boot)
