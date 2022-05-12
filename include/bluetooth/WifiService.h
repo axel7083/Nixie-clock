@@ -11,7 +11,7 @@
 #define SCAN_UUID            "c1eac326-9ded-4148-90c1-6289cdbf5102"
 #define CONNECT_UUID         "c1eac326-9ded-4148-90c1-6289cdbf5103"
 
-class WifiService: BluetoothService {
+class WifiService: public BluetoothService {
 public:
     WifiService() : BluetoothService("c1eac326-9ded-4148-90c1-6289cdbf5100", "WifiService") {}
 
