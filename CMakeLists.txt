@@ -30,4 +30,34 @@ add_custom_target(
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-add_executable(Z_DUMMY_TARGET ${SRC_LIST} src/Clock.cpp include/Clock.h src/managers/WifiManager.cpp include/managers/WifiManager.h src/managers/BackLightsManager.cpp include/managers/BackLightsManager.h src/managers/BLEManager.cpp include/managers/BLEManager.h src/managers/TimeManager.cpp include/managers/TimeManager.h src/managers/FilesManager.cpp include/managers/FilesManager.h src/managers/ButtonsManager.cpp include/managers/ButtonsManager.h include/bluetooth/BluetoothService.h include/bluetooth/BacklightsService.h src/managers/ScreensManager.cpp include/managers/ScreensManager.h src/hardware/ChipSelect.cpp include/hardware/ChipSelect.h include/hardware/Hardware.h include/managers/Manager.h src/utils/Storage.cpp include/utils/Storage.h src/models/Button.cpp include/models/Button.h src/hardware/TFTs.cpp include/hardware/TFTs.h)
+add_executable(Z_DUMMY_TARGET ${SRC_LIST}
+        src/Clock.cpp include/Clock.h
+        src/managers/WifiManager.cpp
+        include/managers/WifiManager.h
+        src/managers/BackLightsManager.cpp
+        include/managers/BackLightsManager.h
+        src/managers/BLEManager.cpp
+        include/managers/BLEManager.h
+        src/managers/TimeManager.cpp
+        include/managers/TimeManager.h
+        src/managers/FilesManager.cpp
+        include/managers/FilesManager.h
+        src/managers/ButtonsManager.cpp
+        src/managers/AlarmsManager.cpp
+        include/managers/ButtonsManager.h
+        include/managers/AlarmsManager.h
+        include/bluetooth/BluetoothService.h
+        include/bluetooth/BacklightsService.h
+        src/managers/ScreensManager.cpp
+        include/managers/ScreensManager.h
+        src/hardware/ChipSelect.cpp
+        include/hardware/ChipSelect.h
+        include/hardware/Hardware.h
+        include/managers/Manager.h
+        src/utils/Storage.cpp
+        include/utils/Storage.h
+        src/models/Button.cpp
+        include/models/Button.h
+        src/hardware/TFTs.cpp
+        include/hardware/TFTs.h
+        include/bluetooth/AlarmsService.h)

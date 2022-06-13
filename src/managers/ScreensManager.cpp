@@ -53,6 +53,7 @@ void ScreensManager::logs(char *record, bool returnLine, uint16_t color, uint16_
 }
 
 void ScreensManager::setBIGtext(char *text) {
+    tfts.fillScreen(TFT_BLACK);
     tfts.setTextFont(LOAD_FONT8);
     tfts.setTextSize(10);
     for(int i = 0 ; i < 6 ; i ++) {

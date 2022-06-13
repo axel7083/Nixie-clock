@@ -1,7 +1,7 @@
 .pio/*
 .idea/*
 .vscode/*
-
+cmake-build-esp32dev/**
 # Prerequisites
 *.d
 
