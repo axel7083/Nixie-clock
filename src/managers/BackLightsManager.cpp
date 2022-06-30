@@ -20,7 +20,7 @@ void BackLightsManager::setPower(uint8_t *value) {
 }
 
 uint16_t BackLightsManager::getPower() {
-    return 1;
+    return getPattern();
 }
 
 void BackLightsManager::setIntensity(uint8_t *uint8) {
@@ -41,7 +41,7 @@ void BackLightsManager::setPattern(BackLightsManager::Patterns pattern) {
     pattern_needs_init = true;
 }
 
-uint16_t BackLightsManager::getPattern() {
+uint8_t BackLightsManager::getPattern() {
     return config->pattern;
 }
 

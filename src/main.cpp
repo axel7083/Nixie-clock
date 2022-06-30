@@ -1,3 +1,5 @@
+#ifndef UNIT_TEST
+
 #include <Arduino.h>
 #include <TFT_eSPI.h> // Hardware-specific library
 #include <JPEGDecoder.h>
@@ -14,3 +16,5 @@ void setup() {
 void loop() {
     Clock::getInstance().loop();
 }
+
+#endif
