@@ -9,8 +9,8 @@ void test_power(void) {
 }
 
 void test_pattern(void) {
-    Clock::getInstance().backLightsManager.setPattern(BackLightsManager::Patterns::breath);
-    TEST_ASSERT_EQUAL(Clock::getInstance().backLightsManager.getPattern(), BackLightsManager::Patterns::breath);
+    Clock::getInstance().backLightsManager.setPattern(BackLightsManager::Patterns::constant);
+    TEST_ASSERT_EQUAL(Clock::getInstance().backLightsManager.getPattern(), BackLightsManager::Patterns::constant);
 }
 
 void setup() {
@@ -26,7 +26,7 @@ void setup() {
 
     UNITY_BEGIN();
     RUN_TEST(test_power);
-    //RUN_TEST(test_pattern);
+    RUN_TEST(test_pattern);
     UNITY_END();
 }
 
