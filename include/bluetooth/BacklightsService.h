@@ -22,7 +22,7 @@ public:
     virtual void setIntensity(uint8_t*) = 0;
     virtual uint8_t getIntensity() = 0;
     virtual void setPattern(uint8_t*) = 0;
-    virtual uint16_t getPattern() = 0;
+    virtual uint8_t getPattern() = 0;
     virtual void setColor(uint8_t*) = 0;
     virtual uint32_t getColor() = 0;
 

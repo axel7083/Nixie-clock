@@ -24,7 +24,7 @@ public:
     uint8_t getIntensity() override;
     void setPattern(uint8_t *uint8) override;
     void setPattern(Patterns);
-    uint16_t getPattern() override;
+    uint8_t getPattern() override;
     void setColor(uint8_t *uint8) override;
     uint32_t getColor() override;
 
