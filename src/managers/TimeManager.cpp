@@ -3,6 +3,7 @@
 //
 
 #include "managers/TimeManager.h"
+#include "Clock.h"
 
 void TimeManager::begin(uint8_t* config) {
     this->config = (Storage::Config::Clock*) config;
@@ -39,5 +40,22 @@ void TimeManager::loop() {
 
 time_t TimeManager::syncProvider() {
     Serial.println("[Clock] syncProvider");
-    return RTC.get();
+    time_t ntp_now, rtc_now;
+    rtc_now = RTC.get();
+
+    if(Clock::getInstance().wifiManager.getStatus() == WifiManager::Status::CONNECTED) {
+        timeClient.update();
+        ntp_now = timeClient.getEpochTime();
+
+        // Sync the RTC to NTP if needed.
+        if (ntp_now != rtc_now) {
+            RTC.set(ntp_now);
+            rtc_now = ntp_now;
+        }
+    }
+
+    return rtc_now;
 }
+
+WiFiUDP TimeManager::ntpUDP;
+NTPClient TimeManager::timeClient(ntpUDP);

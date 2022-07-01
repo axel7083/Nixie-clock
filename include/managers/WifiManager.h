@@ -20,14 +20,26 @@ public:
         CONNECTED = 1,
         SCANNING = 2
     };
-    Status status;
+
     void loop() override;
     void begin(uint8_t* config) override;
+    void end() override {};
+
     void connect(char *ssid, char *passphrase) override;
     void ScanAsync() override;
 
+    char * getSavedSsid() {
+        return &(config->ssid[0]);
+    }
+
+    int getStatus() override { return status; }
+    void setStatus(WifiManager::Status s) {
+        status = s;
+        onStatusChanged(status);
+    }
 
 private:
+    Status status;
     Storage::Config::Wifi *config;
     u_long ms_time;
     uint16_t interval = 30000;

@@ -3,8 +3,7 @@
 #include "Clock.h"
 
 void test_power(void) {
-    uint8_t power = 0;
-    Clock::getInstance().backLightsManager.setPower(&power);
+    Clock::getInstance().backLightsManager.setPower(0);
     TEST_ASSERT_EQUAL(Clock::getInstance().backLightsManager.getPower(), 0);
 }
 

@@ -13,6 +13,7 @@ class ButtonsManager: public Manager {
 public:
     void loop() override;
     void begin(uint8_t* config) override;
+    void end() override {};
 
 private:
     Buttons buttons;

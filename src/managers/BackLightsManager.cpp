@@ -4,11 +4,11 @@
 
 #include "managers/BackLightsManager.h"
 
-void BackLightsManager::setPower(uint8_t *value) {
+void BackLightsManager::setPower(uint8_t value) {
 
-    Serial.printf("Value %d\n", *value);
+    Serial.printf("Value %d\n", value);
     
-    if(*value == 0) {
+    if(value == 0) {
         Serial.println("Set pattern dark");
         setPattern(BackLightsManager::Patterns::dark);
     }
@@ -23,17 +23,17 @@ uint16_t BackLightsManager::getPower() {
     return getPattern();
 }
 
-void BackLightsManager::setIntensity(uint8_t *uint8) {
+void BackLightsManager::setIntensity(uint8_t uint8) {
     Serial.println("[BackLightsManager] Set intensity");
-    config->intensity = *uint8;
+    config->intensity = uint8;
 }
 
 uint8_t BackLightsManager::getIntensity() {
     return config->intensity;
 }
 
-void BackLightsManager::setPattern(uint8_t *uint8) {
-    this->setPattern(BackLightsManager::Patterns(*uint8));
+void BackLightsManager::setPattern(uint8_t uint8) {
+    this->setPattern(BackLightsManager::Patterns(uint8));
 }
 
 void BackLightsManager::setPattern(BackLightsManager::Patterns pattern) {
@@ -45,7 +45,7 @@ uint8_t BackLightsManager::getPattern() {
     return config->pattern;
 }
 
-void BackLightsManager::setColor(uint8_t *uint8) {
+void BackLightsManager::setColor(uint8_t uint8) {
     //TODO
     pattern_needs_init = true;
 }
@@ -80,7 +80,7 @@ void BackLightsManager::loop() {
     }
     else if (config->pattern == constant) {
         if (pattern_needs_init) {
-            setBrightness(0xFF >> max_intensity - config->intensity - 1);
+            setBrightness(0xFF >> (max_intensity - config->intensity - 1));
             fill(phaseToColor(config->color_phase));
             show();
             pattern_needs_init = false;
@@ -103,7 +103,7 @@ uint16_t BackLightsManager::getColorPhase() {
 }
 
 uint8_t BackLightsManager::phaseToIntensity(uint16_t phase) {
-    uint16_t color = 0;
+    uint16_t color;
     if (phase <= 255) {
         // Ramping up
         color = phase;

@@ -9,6 +9,7 @@
 
 class Manager {
     virtual void begin(uint8_t* config) = 0;
+    virtual void end() = 0;
     virtual void loop() = 0;
 };
 

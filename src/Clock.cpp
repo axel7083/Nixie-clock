@@ -36,7 +36,7 @@ void Clock::begin() {
     //screensManager.StartLogging();
     //screensManager.logs("Hello world");
     //delay(30000);
-    screensManager.state = ScreensManager::State::CLOCK;
+    screensManager.setState(ScreensManager::State::CLOCK);
 
     Serial.println("[Clock] WifiManager begin");
     wifiManager.begin(reinterpret_cast<uint8_t *>(&(storage.config.wifi)));

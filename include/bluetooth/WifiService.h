@@ -17,9 +17,16 @@ public:
 
     virtual void connect(char* ssid, char *passphrase);
     virtual void ScanAsync();
+    virtual int getStatus();
 
     void onRead(BLECharacteristic *pCharacteristic) override {
-        // Impossible
+        std::string rxUUID = pCharacteristic->getUUID().toString();
+        Serial.printf("[%s] Received read for %s\n", serviceName, rxUUID.c_str());
+        uint32_t value = 0;
+
+        if(rxUUID == NOTIFY_UUID)
+            value = getStatus();
+        pCharacteristic->setValue(value);
     }
 
     void onWrite(BLECharacteristic *pCharacteristic) override {
@@ -27,18 +34,34 @@ public:
         Serial.printf("[%s] Received write for %s\n", serviceName, rxUUID.c_str());
         if(rxUUID == SCAN_UUID)
             ScanAsync();
-        else if(rxUUID == CONNECT_UUID)
+        else if(rxUUID == CONNECT_UUID) {
             parse(pCharacteristic->getValue());
+
+            // Reset since we could try to steal data
+            pCharacteristic->setValue("");
+        }
+    }
+
+    void onStatusChanged(uint8_t status) {
+        BLECharacteristic *c = getService()->getCharacteristic(NOTIFY_UUID);
+        c->setValue(&status, 1);
+        c->notify();
     }
 
     void addCharacteristics() override {
-        // The Notify feature has not been tested yet.
-        //createCharacteristic(NOTIFY_UUID, BLECharacteristic::PROPERTY_NOTIFY);
+        createCharacteristic(
+                NOTIFY_UUID, 
+                BLECharacteristic::PROPERTY_WRITE  |
+                BLECharacteristic::PROPERTY_INDICATE        |
+                BLECharacteristic::PROPERTY_READ            |
+                BLECharacteristic::PROPERTY_NOTIFY
+            )->addDescriptor(new BLE2902());
+
         createCharacteristic(SCAN_UUID, BLECharacteristic::PROPERTY_WRITE);
         createCharacteristic(CONNECT_UUID, BLECharacteristic::PROPERTY_WRITE);
     }
 
-    BLEService* getService() {return service; }
+    BLEService* getService() { return service; }
 private:
     virtual void parse(std::string value);
 };

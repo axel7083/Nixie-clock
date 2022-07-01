@@ -10,6 +10,7 @@
 #include <BLEService.h>
 #include "BLEUUID.h"
 #include <Arduino.h>
+#include <BLE2902.h>
 
 class BluetoothService: public BLECharacteristicCallbacks {
 public:
@@ -28,13 +29,14 @@ public:
 protected:
     BLEUUID UUID;
     BLEService *service = nullptr;
-    void createCharacteristic(const char* uuid, uint32_t properties) {
+    BLECharacteristic * createCharacteristic(const char* uuid, uint32_t properties) {
         Serial.println("[BluetoothService] createCharacteristic");
         BLECharacteristic * characteristic = service->createCharacteristic(
                 uuid,
                 properties
         );
         characteristic->setCallbacks(this);
+        return characteristic;
     }
     virtual void addCharacteristics() = 0;
 };

@@ -13,8 +13,9 @@
 
 class BLEManager: public BLEServerCallbacks, public Manager {
 public:
-    void begin(uint8_t* config);
-    void loop();
+    void begin(uint8_t* config) override;
+    void loop() override;
+    void end() override {};
 
     void onConnect(BLEServer *pServer) override;
 

@@ -9,6 +9,7 @@
 #include "managers/ScreensManager.h"
 #include "managers/TimeManager.h"
 #include "managers/WifiManager.h"
+#include "managers/AnimationsManager.h"
 
 #include "utils/Storage.h"
 
@@ -24,11 +25,13 @@ class Clock {
         void saveConfig();
 
     public:
+
         BackLightsManager backLightsManager;
         BLEManager bleManager;
         ButtonsManager buttonsManager;
         ScreensManager screensManager;
         TimeManager timeManager;
+        AnimationsManager animationsManager; // No need to call loop() => The ScreenManager will handle this
         FilesManager filesManager; // No need to call loop()
         WifiManager wifiManager; // No need to call loop()
         void begin();

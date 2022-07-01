@@ -32,7 +32,7 @@ void WifiManager::begin(uint8_t* config) {
 void WifiManager::loop() {
     if(millis() - ms_time > interval) {
         ms_time = millis();
-        if(status == SCANNING) {
+        if(getStatus() == SCANNING) {
             int n = WiFi.scanComplete();
             Serial.printf("[WifiManager] Scanning scanComplete=%d\n",n);
             if(n >= 0) {
@@ -50,27 +50,22 @@ void WifiManager::loop() {
                 char output[ssids.length() + 20];
                 sprintf(&output[0],"{\"ssid\":\"%s\"}", ssids.c_str()); //json format
                 Serial.println(output);
-                //BLECharacteristic *c = getService()->getCharacteristic(NOTIFY_UUID);
-                //c->setValue(output);
-                //c->notify();
                 interval = 30000;
-                status = (WiFiClass::status() == WL_CONNECTED)? CONNECTED:DISCONNECTED;
+                setStatus((WiFiClass::status() == WL_CONNECTED)? CONNECTED:DISCONNECTED);
                 WiFi.scanDelete();
             }
         }
         else {
             Status nStatus = (WiFiClass::status() == WL_CONNECTED)? CONNECTED:DISCONNECTED;
-            if(nStatus != status /*&& getService() != nullptr*/) {
+            if(nStatus != getStatus() /*&& getService() != nullptr*/) {
                 Serial.printf("[WifiManager] Status changed %d\n", uint8_t(nStatus));
 
-                if(nStatus == WL_CONNECTED) {
+                if(uint8_t(nStatus) == WL_CONNECTED) {
+                    Serial.printf("[WifiManager] Saving config\n");
                     //save credentials
                     Clock::getInstance().saveConfig();
                 }
-                //BLECharacteristic *c = getService()->getCharacteristic(NOTIFY_UUID);
-                //c->setValue(uint8_t(nStatus)?"{\"connected:\":1}":"{\"connected:\":0}"); //json format
-                //c->notify();
-                status = nStatus;
+                setStatus(nStatus);
             }
         }
     }
@@ -86,7 +81,7 @@ void WifiManager::ScanAsync() {
     WiFi.disconnect(); //Mandatory
     Serial.println("[WifiManager] Start AsyncScan");
     WiFi.scanNetworks(true); //timeout = 20000 ms
-    status = SCANNING;
+    setStatus(SCANNING);
     interval = 1000; //Reduce interval when scanning
 }
 

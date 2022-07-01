@@ -12,6 +12,7 @@ class FilesManager: public Manager, public UploadService {
 public:
     void begin(uint8_t* config) override;
     void loop() override;
+    void end() override {};
     void list_files();
 
 private:

@@ -17,13 +17,13 @@ public:
     using BluetoothService::initService;
     BacklightsService() : BluetoothService("bb5e995d-5863-4aa1-bafe-0e6a9fd4aa70", "BacklightsService") {}
 
-    virtual void setPower(uint8_t*) = 0;
+    virtual void setPower(uint8_t) = 0;
     virtual uint16_t getPower() = 0;
-    virtual void setIntensity(uint8_t*) = 0;
+    virtual void setIntensity(uint8_t) = 0;
     virtual uint8_t getIntensity() = 0;
-    virtual void setPattern(uint8_t*) = 0;
+    virtual void setPattern(uint8_t) = 0;
     virtual uint8_t getPattern() = 0;
-    virtual void setColor(uint8_t*) = 0;
+    virtual void setColor(uint8_t) = 0;
     virtual uint32_t getColor() = 0;
 
     void onRead(BLECharacteristic *pCharacteristic) override {
@@ -45,13 +45,13 @@ public:
         std::string rxUUID = pCharacteristic->getUUID().toString();
         Serial.printf("[%s] Received write for %s\n", serviceName, rxUUID.c_str());
         if(rxUUID == POWER_UUID)
-            setPower(pCharacteristic->getData());
+            setPower(*pCharacteristic->getData());
         else if(rxUUID == INTENSITY_UUID)
-            setIntensity(pCharacteristic->getData());
+            setIntensity(*pCharacteristic->getData());
         else if(rxUUID == PATTERN_UUID)
-            setPattern(pCharacteristic->getData());
+            setPattern(*pCharacteristic->getData());
         else if(rxUUID == COLOR_UUID)
-            setColor(pCharacteristic->getData());
+            setColor(*pCharacteristic->getData());
         else
             Serial.println("[BacklightsService] The UUID was not recognized.");
     }

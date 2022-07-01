@@ -18,9 +18,9 @@ void ButtonsManager::loop() {
             // Toggle backlights
             Serial.println("Pressing power button");
             Clock::getInstance().backLightsManager.toggle();
+
             Clock::getInstance().screensManager.toggleScreens();
-            
-            //Clock::getInstance().wifiManager.fetch(); //this was a test
+
             break;
         case Button::state::up_long_edge: // Long press button release
             // Reboot
@@ -31,11 +31,17 @@ void ButtonsManager::loop() {
             break;
     }
 
-
     // Mode
     switch (buttons.mode.getState())
     {
         case Button::state::up_edge: // Button release
+
+            if(Clock::getInstance().screensManager.getState() == ScreensManager::State::FIREWORKS) {
+                Clock::getInstance().screensManager.setState(ScreensManager::State::CLOCK);
+            }
+            else {
+                Clock::getInstance().screensManager.setState(ScreensManager::State::FIREWORKS);
+            }
 
             break;
         case Button::state::up_long_edge: // Long press button release

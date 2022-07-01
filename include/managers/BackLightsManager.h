@@ -18,14 +18,14 @@ public:
     enum Patterns { dark, constant, rainbow, pulse, breath };
 
     void toggle();
-    void setPower(uint8_t *uint8) override;
+    void setPower(uint8_t uint8) override;
     uint16_t getPower() override;
-    void setIntensity(uint8_t *uint8) override;
+    void setIntensity(uint8_t uint8) override;
     uint8_t getIntensity() override;
-    void setPattern(uint8_t *uint8) override;
+    void setPattern(uint8_t uint8) override;
     void setPattern(Patterns);
     uint8_t getPattern() override;
-    void setColor(uint8_t *uint8) override;
+    void setColor(uint8_t uint8) override;
     uint32_t getColor() override;
 
 
@@ -33,6 +33,7 @@ public:
 
     void begin(uint8_t* config) override;
     void loop() override;
+    void end() override {};
 private:
     Storage::Config::Backlights *config;
     bool pattern_needs_init;

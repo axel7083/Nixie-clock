@@ -10,7 +10,7 @@
 
 // For NTP
 #include <WiFi.h>
-//#include <NTPClient.h>
+#include <NTPClient.h>
 
 // For the DS3231 RTC
 #include <DS1307RTC.h>
@@ -23,6 +23,7 @@ public:
     TimeManager(): loop_time(0), local_time(0), time_valid(false), config(NULL) {}
     void loop() override;
     void begin(uint8_t* config) override;
+    void end() override {};
 
     // Calls NTPClient::getEpochTime() or RTC::get() as appropriate
     // This has to be static to pass to TimeLib::setSyncProvider.
@@ -70,6 +71,7 @@ private:
 
     // Static variables needed for syncProvider()
     static WiFiUDP ntpUDP;
+    static NTPClient timeClient;
     //static NTPClient ntpTimeClient;
     //static uint32_t millis_last_ntp;
     //const static uint32_t refresh_ntp_every_ms = 3600000; // Get new NTP every hour, use RTC in between.
