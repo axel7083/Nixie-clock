@@ -9,10 +9,10 @@
 
 class Managers;
 
-class ButtonsManager: public Manager {
+class ButtonsManager: public Manager<nullptr_t> {
 public:
     void loop() override;
-    void begin(uint8_t* config) override;
+    void begin(nullptr_t* config) override;
     void end() override {};
 
 private:

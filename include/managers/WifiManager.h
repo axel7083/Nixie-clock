@@ -11,7 +11,7 @@
 #include <ArduinoJson.h>
 #include <HTTPClient.h>
 
-class WifiManager: public Manager, public WifiService {
+class WifiManager: public Manager<Storage::Config::Wifi>, public WifiService {
 public:
     WifiManager(): status(Status::DISCONNECTED),config(nullptr), ms_time(0) {}
 
@@ -22,7 +22,7 @@ public:
     };
 
     void loop() override;
-    void begin(uint8_t* config) override;
+    void begin(Storage::Config::Wifi* config) override;
     void end() override {};
 
     void connect(char *ssid, char *passphrase) override;

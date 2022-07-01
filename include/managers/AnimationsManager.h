@@ -9,16 +9,16 @@
 #include "Manager.h"
 #include "animation/firework.h"
 
-class AnimationsManager: public Manager {
+class AnimationsManager: public Manager<TFTs> {
 public:
     void loop() override;
-    void begin(uint8_t *config) override;
+    void begin(TFTs *config) override;
     void end() override;
 
 private:
     TFTs *tfts = nullptr;
-    uint32_t millis_last_draw;
-    Animator *animators[6];
+    uint32_t millis_last_draw = 0;
+    Animator *animators[6] = {};
 };
 
 

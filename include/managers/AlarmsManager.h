@@ -10,10 +10,10 @@
 
 class Managers;
 
-class AlarmsManager: public AlarmsService, public Manager {
+class AlarmsManager: public AlarmsService, public Manager<nullptr_t> {
 public:
     void loop() override;
-    void begin(uint8_t* config) override;
+    void begin(nullptr_t* config) override;
 
     void setAlarm(uint8_t *uint8) override;
 

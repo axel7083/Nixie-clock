@@ -4,7 +4,7 @@
 
 #include "managers/FilesManager.h"
 
-void FilesManager::begin(uint8_t* config) {
+void FilesManager::begin(nullptr_t* config) {
     if(!LITTLEFS.begin()){
         //screeensManager.logs("FAIL\nFORMATING.. ", false, TFT_RED);
         Serial.println("Formatting..");

@@ -6,7 +6,7 @@
 #include "Clock.h"
 
 
-void ScreensManager::begin(uint8_t* config) {
+void ScreensManager::begin(nullptr_t* config) {
     Serial.println("Booting screens");
     tfts.begin();
     updateClockDisplay(TFTs::force);
@@ -106,7 +106,7 @@ void ScreensManager::setState(ScreensManager::State s) {
             updateClockDisplay(TFTs::force);
             break;
         case FIREWORKS:
-            Clock::getInstance().animationsManager.begin(reinterpret_cast<uint8_t *>(&tfts));
+            Clock::getInstance().animationsManager.begin(&tfts);
             break;
         case OFF:
             break;

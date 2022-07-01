@@ -5,7 +5,7 @@
 #include "managers/ButtonsManager.h"
 #include "Clock.h"
 
-void ButtonsManager::begin(uint8_t* config) {
+void ButtonsManager::begin(nullptr_t* config) {
     buttons.begin();
 }
 

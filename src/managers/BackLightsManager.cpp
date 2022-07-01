@@ -54,7 +54,7 @@ uint32_t BackLightsManager::getColor() {
     return phaseToColor(config->color_phase);
 }
 
-void BackLightsManager::begin(uint8_t* config) {
+void BackLightsManager::begin(Storage::Config::Backlights * config) {
 
     this->config = (Storage::Config::Backlights *) config;
 

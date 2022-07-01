@@ -26,7 +26,6 @@ public:
             uint8_t* received_data = pCharacteristic->getData();
             // https://stackoverflow.com/a/12240325/10160890
             uint32_t value = (received_data[0] << 24) + (received_data[1] << 16) + (received_data[2] << 8) + received_data[3];
-            Serial.printf("[TimeService] value %d\n", value);
             setTimeZoneOffset(value);
         }
         else

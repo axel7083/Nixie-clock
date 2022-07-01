@@ -4,8 +4,8 @@
 
 #include "managers/AnimationsManager.h"
 
-void AnimationsManager::begin(uint8_t *config) {
-    tfts = reinterpret_cast<TFTs *>(config);
+void AnimationsManager::begin(TFTs *config) {
+    tfts = config;
     int pixelCount = sizeof(pixels)/sizeof(FramedPixel);
     for(int i = 0 ; i < 6; i ++) {
         animators[i] = new Animator(&pixels[0], pixelCount, tfts, i, random(0, 10));

@@ -18,7 +18,7 @@ void Clock::begin() {
     storage.load();
 
     Serial.println("[Clock] backLightsManager begin");
-    backLightsManager.begin(reinterpret_cast<uint8_t *>(&(storage.config.backlights)));
+    backLightsManager.begin(&(storage.config.backlights));
 
     Serial.println("[Clock] buttonsManager begin");
     buttonsManager.begin(nullptr); // no config needed for the buttons
@@ -28,7 +28,7 @@ void Clock::begin() {
     filesManager.list_files();
 
     Serial.println("[Clock] TimeManager begin");
-    timeManager.begin(reinterpret_cast<uint8_t *>(&(storage.config.uclock)));
+    timeManager.begin(&(storage.config.uclock));
 
     Serial.println("[Clock] ScreenManager begin");
     screensManager.begin(nullptr);
@@ -39,7 +39,7 @@ void Clock::begin() {
     screensManager.setState(ScreensManager::State::CLOCK);
 
     Serial.println("[Clock] WifiManager begin");
-    wifiManager.begin(reinterpret_cast<uint8_t *>(&(storage.config.wifi)));
+    wifiManager.begin(&(storage.config.wifi));
 
     Serial.println("[Clock] BLE begin");
     bleManager.begin(nullptr);

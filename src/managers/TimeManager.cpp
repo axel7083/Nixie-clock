@@ -5,8 +5,8 @@
 #include "managers/TimeManager.h"
 #include "Clock.h"
 
-void TimeManager::begin(uint8_t* config) {
-    this->config = (Storage::Config::Clock*) config;
+void TimeManager::begin(Storage::Config::Clock* config) {
+    this->config = config;
 
     if (this->config->is_valid != Storage::valid) {
         // Config is invalid, probably a new device never had its config written.
@@ -46,8 +46,6 @@ time_t TimeManager::syncProvider() {
     if(Clock::getInstance().wifiManager.getStatus() == WifiManager::Status::CONNECTED) {
         timeClient.update();
         ntp_now = timeClient.getEpochTime();
-
-        Serial.printf("[ntp_now] %ld", ntp_now);
 
         // Sync the RTC to NTP if needed.
         if (ntp_now != rtc_now) {

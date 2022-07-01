@@ -11,9 +11,9 @@
 #include "bluetooth/BluetoothService.h"
 #include "Manager.h"
 
-class BLEManager: public BLEServerCallbacks, public Manager {
+class BLEManager: public BLEServerCallbacks, public Manager<nullptr_t> {
 public:
-    void begin(uint8_t* config) override;
+    void begin(nullptr_t* config) override;
     void loop() override;
     void end() override {};
 

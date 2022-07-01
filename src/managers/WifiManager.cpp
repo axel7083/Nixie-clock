@@ -6,8 +6,8 @@
 #include "Clock.h"
 
 
-void WifiManager::begin(uint8_t* config) {
-    this->config = (Storage::Config::Wifi*) config;
+void WifiManager::begin(Storage::Config::Wifi* config) {
+    this->config = config;
 
     if(this->config->is_valid != Storage::valid) {
         Serial.println("[WifiManager] Invalid config: This is normal at first boot.");

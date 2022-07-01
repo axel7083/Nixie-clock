@@ -8,9 +8,9 @@
 #include "bluetooth/UploadService.h"
 #include <LITTLEFS.h>
 
-class FilesManager: public Manager, public UploadService {
+class FilesManager: public Manager<nullptr_t>, public UploadService {
 public:
-    void begin(uint8_t* config) override;
+    void begin(nullptr_t* config) override;
     void loop() override;
     void end() override {};
     void list_files();

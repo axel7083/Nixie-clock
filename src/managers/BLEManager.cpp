@@ -23,7 +23,7 @@ void BLEManager::loop() {
     }
 }
 
-void BLEManager::begin(uint8_t* config) {
+void BLEManager::begin(nullptr_t* config) {
     BLEDevice::init("Clock Service");
     // Create the BLE Server
     pServer = BLEDevice::createServer();

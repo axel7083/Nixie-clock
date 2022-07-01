@@ -11,7 +11,7 @@
 #include "hardware/Hardware.h"
 #include <Adafruit_NeoPixel.h>
 
-class BackLightsManager: public Adafruit_NeoPixel, public BacklightsService, public Manager {
+class BackLightsManager: public Adafruit_NeoPixel, public BacklightsService, public Manager<Storage::Config::Backlights> {
 public:
     BackLightsManager(): Adafruit_NeoPixel(NUM_DIGITS, BACKLIGHTS_PIN, NEO_GRB + NEO_KHZ800), config(NULL),
         pattern_needs_init(true){}
@@ -30,10 +30,10 @@ public:
 
 
     uint16_t getColorPhase();
-
-    void begin(uint8_t* config) override;
+    void begin(Storage::Config::Backlights * config) override;
     void loop() override;
     void end() override {};
+    
 private:
     Storage::Config::Backlights *config;
     bool pattern_needs_init;

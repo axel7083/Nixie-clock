@@ -5,7 +5,7 @@
 #include "managers/AlarmsManager.h"
 #include "Clock.h"
 
-void AlarmsManager::begin(uint8_t* config) {
+void AlarmsManager::begin(nullptr_t* config) {
 
 }
 

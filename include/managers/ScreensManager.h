@@ -10,7 +10,7 @@
 #include "TimeManager.h"
 
 
-class ScreensManager: public Manager {
+class ScreensManager: public Manager<nullptr_t> {
 public:
     enum State {
         LOGS = 0,
@@ -20,7 +20,7 @@ public:
     };
 
     void toggleScreens() { if(state == State::OFF) state = State::CLOCK; else state = State::OFF; };
-    void begin(uint8_t* config) override;
+    void begin(nullptr_t* config) override;
     void loop() override;
     void end() override {};
 

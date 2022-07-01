@@ -19,11 +19,11 @@
 #include "hardware/TFTs.h"
 #include "bluetooth/TimeService.h"
 
-class TimeManager: public Manager, public TimeService {
+class TimeManager: public Manager<Storage::Config::Clock>, public TimeService {
 public:
     TimeManager(): loop_time(0), local_time(0), time_valid(false), config(NULL) {}
     void loop() override;
-    void begin(uint8_t* config) override;
+    void begin(Storage::Config::Clock* config) override;
     void end() override {};
 
     // Calls NTPClient::getEpochTime() or RTC::get() as appropriate
