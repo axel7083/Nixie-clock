@@ -48,6 +48,7 @@ void Clock::begin() {
     bleManager.addService(&backLightsManager);
     bleManager.addService(&filesManager);
     bleManager.addService(&wifiManager);
+    bleManager.addService(&timeManager);
     bleManager.startAdvertising();
 
     // Save the config (useful when first boot)

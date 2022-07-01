@@ -47,6 +47,8 @@ time_t TimeManager::syncProvider() {
         timeClient.update();
         ntp_now = timeClient.getEpochTime();
 
+        Serial.printf("[ntp_now] %ld", ntp_now);
+
         // Sync the RTC to NTP if needed.
         if (ntp_now != rtc_now) {
             RTC.set(ntp_now);
@@ -59,3 +61,8 @@ time_t TimeManager::syncProvider() {
 
 WiFiUDP TimeManager::ntpUDP;
 NTPClient TimeManager::timeClient(ntpUDP);
+
+void TimeManager::setTimeZoneOffset(long offset) {
+    config->time_zone_offset = offset;
+    Clock::getInstance().saveConfig();
+}

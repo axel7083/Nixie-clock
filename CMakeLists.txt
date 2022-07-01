@@ -60,4 +60,4 @@ add_executable(Z_DUMMY_TARGET ${SRC_LIST}
         include/models/Button.h
         src/hardware/TFTs.cpp
         include/hardware/TFTs.h
-        include/bluetooth/AlarmsService.h include/animation/firework.h src/utils/Animator.cpp include/utils/Animator.h src/managers/AnimationsManager.cpp include/managers/AnimationsManager.h)
+        include/bluetooth/AlarmsService.h include/animation/firework.h src/utils/Animator.cpp include/utils/Animator.h src/managers/AnimationsManager.cpp include/managers/AnimationsManager.h include/bluetooth/TimeService.h)

@@ -65,3 +65,10 @@ await client.write_gatt_char("c2285d2f-44c5-4abb-af86-9d159f351083", b'close', r
 ```python
 await client.write_gatt_char("c1eac326-9ded-4148-90c1-6289cdbf5103", "ssid;password".encode(), response=True)
 ```
+
+## Set TimeZoneOffset
+
+Paris is +2 Therefore we add 2 hours to the default time:
+```python
+await client.write_gatt_char("b13c119b-2a41-4c37-8f5e-f9c914566d51", (60*60*2).to_bytes(4, byteorder='big'), response=True)
+```

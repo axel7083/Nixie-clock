@@ -17,8 +17,9 @@
 
 #include "utils/Storage.h"
 #include "hardware/TFTs.h"
+#include "bluetooth/TimeService.h"
 
-class TimeManager: public Manager {
+class TimeManager: public Manager, public TimeService {
 public:
     TimeManager(): loop_time(0), local_time(0), time_valid(false), config(NULL) {}
     void loop() override;
@@ -35,7 +36,7 @@ public:
     void toggleTwelveHour()               { config->twelve_hour = !config->twelve_hour; }
 
     // Internal time is kept in UTC. This affects the displayed time.
-    void setTimeZoneOffset(time_t offset) { config->time_zone_offset = offset; }
+    void setTimeZoneOffset(long offset) override ;
     time_t getTimeZoneOffset()            { return config->time_zone_offset; }
     void adjustTimeZoneOffset(time_t adj) { config->time_zone_offset += adj; }
 

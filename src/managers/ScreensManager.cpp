@@ -35,6 +35,10 @@ void ScreensManager::loop() {
         timeForMore = millis();
         updateClockDisplay(TFTs::yes);
     }
+
+    #ifndef DEBUG
+        debug();
+    #endif
 }
 
 void ScreensManager::StartLogging() {
@@ -77,10 +81,6 @@ void ScreensManager::updateClockDisplay(TFTs::show_t show) {
     tfts.setDigit(MINUTES_ONES, time.getMinutesOnes(), show);
     tfts.setDigit(SECONDS_TENS, time.getSecondsTens(), show);
     tfts.setDigit(SECONDS_ONES, time.getSecondsOnes(), show);
-
-    #ifndef DEBUG
-        debug();
-    #endif
 }
 
 #ifndef DEBUG
