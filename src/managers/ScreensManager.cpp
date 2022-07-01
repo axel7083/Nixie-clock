@@ -36,7 +36,7 @@ void ScreensManager::loop() {
         updateClockDisplay(TFTs::yes);
     }
 
-    #ifndef DEBUG
+    #ifdef DEBUG
         debug();
     #endif
 }
@@ -83,7 +83,7 @@ void ScreensManager::updateClockDisplay(TFTs::show_t show) {
     tfts.setDigit(SECONDS_ONES, time.getSecondsOnes(), show);
 }
 
-#ifndef DEBUG
+#ifdef DEBUG
 void ScreensManager::debug() {
     tfts.chip_select.setHoursTens();
     tfts.setCursor(0, 0, 2);
@@ -94,7 +94,7 @@ void ScreensManager::debug() {
 
     tfts.printf("Date: %d/%d/%d\n", Clock::getInstance().timeManager.getYear(), Clock::getInstance().timeManager.getMonth(), Clock::getInstance().timeManager.getDay());
 }
-
+#endif
 void ScreensManager::setState(ScreensManager::State s) {
     // if the previous state was fireworks mode
     if(getState() == State::FIREWORKS) {
@@ -116,4 +116,3 @@ void ScreensManager::setState(ScreensManager::State s) {
     state = s;
 }
 
-#endif
