@@ -41,9 +41,9 @@ public:
 
     BLEService* getService() {return service; }
 private:
-    virtual void init_upload(const char* path);
-    virtual void handle_data(uint8_t *buf, size_t size);
-    virtual void close_upload();
+    virtual void init_upload(const char* path) = 0;
+    virtual void handle_data(uint8_t *buf, size_t size) = 0;
+    virtual void close_upload() = 0;
 };
 
 
