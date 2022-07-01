@@ -90,7 +90,9 @@ void ScreensManager::debug() {
     char buffer[100];
     sprintf(buffer, "Wifi Status: %d\nWifi SSID: ", Clock::getInstance().wifiManager.getStatus());
     logs(&buffer[0], false,TFT_WHITE,TFT_BLACK, true);
-    logs(Clock::getInstance().wifiManager.getSavedSsid(), false,TFT_WHITE,TFT_BLACK, true);
+    logs(Clock::getInstance().wifiManager.getSavedSsid(), true,TFT_WHITE,TFT_BLACK, true);
+
+    tfts.printf("Date: %d/%d/%d\n", Clock::getInstance().timeManager.getYear(), Clock::getInstance().timeManager.getMonth(), Clock::getInstance().timeManager.getDay());
 }
 
 void ScreensManager::setState(ScreensManager::State s) {

@@ -65,6 +65,9 @@ public:
     uint8_t getSecondsTens()  { return getSecond()/10; }
     uint8_t getSecondsOnes()  { return getSecond()%10; }
 
+    void forceUpdate() {
+        setTime(syncProvider());
+    }
 private:
     time_t loop_time, local_time;
     bool time_valid;

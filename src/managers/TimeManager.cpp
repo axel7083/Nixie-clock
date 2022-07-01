@@ -31,8 +31,8 @@ void TimeManager::loop() {
         time_valid = true;
     }
 
-    // Every 100 seconds read rtc
-    if(millis() - refresh_rtc > 100000) {
+    // Every one hour seconds read rtc
+    if(millis() - refresh_rtc > 1000*60*60) {
         setTime(syncProvider());
         refresh_rtc = millis();
     }
@@ -44,13 +44,25 @@ time_t TimeManager::syncProvider() {
     rtc_now = RTC.get();
 
     if(Clock::getInstance().wifiManager.getStatus() == WifiManager::Status::CONNECTED) {
-        timeClient.update();
-        ntp_now = timeClient.getEpochTime();
 
-        // Sync the RTC to NTP if needed.
-        if (ntp_now != rtc_now) {
-            RTC.set(ntp_now);
-            rtc_now = ntp_now;
+        if(timeClient.update() || timeClient.forceUpdate()) {
+            ntp_now = timeClient.getEpochTime();
+            Serial.printf("[syncProvider] ntp_now %ld\n", ntp_now);
+
+            // Check that the ntp_now look like something valid.
+            if(year(ntp_now) < 2000) {
+                Serial.printf("[syncProvider] Error ntp_now value\n");
+                ESP.restart();
+            }
+
+            // Sync the RTC to NTP if needed.
+            if (ntp_now != rtc_now) {
+                RTC.set(ntp_now);
+                rtc_now = ntp_now;
+            }
+        }
+        else {
+            Serial.printf("[syncProvider] timeClient update failed\n");
         }
     }
 

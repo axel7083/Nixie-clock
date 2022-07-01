@@ -59,13 +59,14 @@ void WifiManager::loop() {
             Status nStatus = (WiFiClass::status() == WL_CONNECTED)? CONNECTED:DISCONNECTED;
             if(nStatus != getStatus() /*&& getService() != nullptr*/) {
                 Serial.printf("[WifiManager] Status changed %d\n", uint8_t(nStatus));
+                setStatus(nStatus);
 
                 if(uint8_t(nStatus) == CONNECTED) {
                     Serial.printf("[WifiManager] Saving config\n");
                     //save credentials
                     Clock::getInstance().saveConfig();
+                    Clock::getInstance().timeManager.forceUpdate();
                 }
-                setStatus(nStatus);
             }
         }
     }
