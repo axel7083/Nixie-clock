@@ -8,19 +8,24 @@
 #include "models/Buttons.h"
 #include "bluetooth/AlarmsService.h"
 
-class Managers;
+struct Birthday {
+    uint8_t day;
+    uint8_t month;
+};
 
 class AlarmsManager: public AlarmsService, public Manager<nullptr_t> {
 public:
     void loop() override;
     void begin(nullptr_t* config) override;
+    void end() override {};
 
     void setAlarm(uint8_t *uint8) override;
 
     void resetAlarm() override;
 
 private:
-
+    unsigned long refresh = 0;
+    uint8_t current_day = 0;
 };
 
 

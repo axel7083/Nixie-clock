@@ -5,7 +5,6 @@
 #ifndef CLOCK2_0_TIMEMANAGER_H
 #define CLOCK2_0_TIMEMANAGER_H
 #include "Manager.h"
-#include <stdint.h>
 #include <TimeLib.h>
 
 // For NTP
@@ -21,7 +20,7 @@
 
 class TimeManager: public Manager<Storage::Config::Clock>, public TimeService {
 public:
-    TimeManager(): loop_time(0), local_time(0), time_valid(false), config(NULL) {}
+    TimeManager(): loop_time(0), local_time(0), time_valid(false), config(nullptr) {}
     void loop() override;
     void begin(Storage::Config::Clock* config) override;
     void end() override {};

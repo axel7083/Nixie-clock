@@ -12,6 +12,7 @@
 #include "managers/AnimationsManager.h"
 
 #include "utils/Storage.h"
+#include "managers/AlarmsManager.h"
 
 class Clock {
     private:
@@ -31,6 +32,7 @@ class Clock {
         ButtonsManager buttonsManager;
         ScreensManager screensManager;
         TimeManager timeManager;
+        AlarmsManager alarmsManager; // No need to call begin()
         AnimationsManager animationsManager; // No need to call loop() => The ScreenManager will handle this
         FilesManager filesManager; // No need to call loop()
         WifiManager wifiManager; // No need to call loop()

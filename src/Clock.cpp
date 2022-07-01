@@ -33,9 +33,6 @@ void Clock::begin() {
     Serial.println("[Clock] ScreenManager begin");
     screensManager.begin(nullptr);
 
-    //screensManager.StartLogging();
-    //screensManager.logs("Hello world");
-    //delay(30000);
     screensManager.setState(ScreensManager::State::CLOCK);
 
     Serial.println("[Clock] WifiManager begin");
@@ -66,6 +63,7 @@ void Clock::loop() {
     timeManager.loop();
     screensManager.loop();
     wifiManager.loop();
+    alarmsManager.loop();
 }
 
 
