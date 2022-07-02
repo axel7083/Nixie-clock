@@ -15,11 +15,11 @@ public:
     enum State {
         LOGS = 0,
         CLOCK = 1,
-        FIREWORKS = 2,
+        EVENT = 2,
         OFF,
     };
 
-    void toggleScreens() { if(state == State::OFF) state = State::CLOCK; else state = State::OFF; };
+    void toggleScreens() { if(state == State::OFF) setState(State::CLOCK); else setState(State::OFF); };
     void begin(nullptr_t* config) override;
     void loop() override;
     void end() override {};

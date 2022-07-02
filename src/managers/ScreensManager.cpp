@@ -25,7 +25,7 @@ void ScreensManager::loop() {
             if(!tfts.isEnabled())
                 tfts.enableAllDisplays();
             break;
-        case FIREWORKS:
+        case State::EVENT:
             Clock::getInstance().animationsManager.loop();
             break;
     }
@@ -87,6 +87,7 @@ void ScreensManager::updateClockDisplay(TFTs::show_t show) {
 void ScreensManager::debug() {
     tfts.chip_select.setHoursTens();
     tfts.setCursor(0, 0, 2);
+    tfts.setTextSize(1);
     char buffer[100];
     sprintf(buffer, "Wifi Status: %d\nWifi SSID: ", Clock::getInstance().wifiManager.getStatus());
     logs(&buffer[0], false,TFT_WHITE,TFT_BLACK, true);
@@ -97,22 +98,22 @@ void ScreensManager::debug() {
 #endif
 void ScreensManager::setState(ScreensManager::State s) {
     // if the previous state was fireworks mode
-    if(getState() == State::FIREWORKS) {
+    if(getState() == State::EVENT) {
         Clock::getInstance().animationsManager.end();
     }
-
+    state = s;
     switch (s) {
         case LOGS:
             break;
         case CLOCK:
             updateClockDisplay(TFTs::force);
             break;
-        case FIREWORKS:
+        case EVENT:
             Clock::getInstance().animationsManager.begin(&tfts);
             break;
         case OFF:
             break;
     }
-    state = s;
+
 }
 

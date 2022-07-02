@@ -19,7 +19,6 @@ void TFTs::beginJpg()
 }
 
 void TFTs::setTextSize(uint8_t s) {
-    if (s>10) s = 10;
     textsize = (s > 0) ? s : 1; // Don't allow font size 0
 }
 

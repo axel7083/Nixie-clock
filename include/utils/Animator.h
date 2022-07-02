@@ -23,10 +23,18 @@ static uint32_t colors[][5] = {
 
 class Animator {
 public:
-    Animator(FramedPixel *framedPixels, int size, TFTs *tfts, uint8_t screen, uint8_t timeOffset = 0)  {
+    Animator(
+            FramedPixel *framedPixels,
+            int size,
+            TFTs *tfts,
+            uint8_t screen,
+            char *text,
+            uint8_t timeOffset = 0
+    ) {
         this->framedPixels = framedPixels;
         this->size = size;
         this->tfts = tfts;
+        this->text = text;
         this->screen = screen;
         this->timeOffset = timeOffset;
 
@@ -40,6 +48,10 @@ public:
         tfts->fillScreen(TFT_BLACK);
 
         reset();
+    }
+
+    ~Animator() {
+        free(text);
     }
 
     void reset() {
@@ -57,21 +69,24 @@ public:
 
 private:
     int currentFrame = 0;
-    int frameCount;
-    FramedPixel *framedPixels;
-    int size;
-    TFTs *tfts;
-    uint8_t scale;
+    int frameCount = 0;
+    FramedPixel *framedPixels = nullptr;
+    int size = 0;
+    char *text = nullptr;
+    TFTs *tfts = nullptr;
+    uint8_t scale = 0;
     uint8_t xOffset = 0;
     uint8_t yOffset = 0;
-    uint8_t screen;
-    uint8_t timeOffset;
-    uint8_t colorIndex;
+    uint8_t screen = 0;
+    uint8_t timeOffset = 0;
+    uint8_t colorIndex = 0;
 
     void drawRect(uint16_t x, uint16_t y, uint8_t colorId);
     uint16_t getColor(int id) {
         return colors[colorIndex][id];
     }
+
+    void drawText();
 };
 
 

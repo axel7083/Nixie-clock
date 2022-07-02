@@ -3,6 +3,14 @@
 
 #include <Preferences.h>
 
+struct Event {
+    uint8_t day;
+    uint8_t month;
+    uint16_t year;
+    char message[24];
+    uint8_t  is_valid;
+};
+
 class Storage {
 public:
     Storage() : loaded(false), prefs(), config_size(sizeof(config)) {}
@@ -49,6 +57,12 @@ public:
             uint8_t retries;
             uint8_t  is_valid;       // Write StoredConfig::valid here when valid data is loaded.
         } wifi;
+
+        struct Alarms {
+            Event events[5];         // We can store up to 5 events. (Memory issue)
+            uint8_t  is_valid;       // Write StoredConfig::valid here when valid data is loaded.
+        } alarms;
+
     } config;
 
     const static uint8_t valid = 0x55;  // neither 0x00 nor 0xFF, signaling loaded config isn't just default data.

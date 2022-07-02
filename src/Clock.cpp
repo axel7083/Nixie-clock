@@ -41,6 +41,9 @@ void Clock::begin() {
     Serial.println("[Clock] BLE begin");
     bleManager.begin(nullptr);
 
+    Serial.println("[Clock] BLE begin");
+    alarmsManager.begin(&(storage.config.alarms));
+
     // Now let us add the services to our Bluetooth manager and start advertising
     bleManager.addService(&backLightsManager);
     bleManager.addService(&filesManager);

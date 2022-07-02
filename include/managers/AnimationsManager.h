@@ -15,6 +15,8 @@ public:
     void begin(TFTs *config) override;
     void end() override;
 
+    void createAnimators();
+
 private:
     TFTs *tfts = nullptr;
     uint32_t millis_last_draw = 0;
