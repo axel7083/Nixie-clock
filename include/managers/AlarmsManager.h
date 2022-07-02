@@ -24,6 +24,9 @@ public:
         return currentEvent;
     }
 
+    void requireUpdate() {
+        current_day = 0;
+    }
 
 
 private:

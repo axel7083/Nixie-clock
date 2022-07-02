@@ -6,13 +6,16 @@
 #include "Clock.h"
 
 void AnimationsManager::begin(TFTs *config) {
+    Serial.println("[AnimationsManager] begin");
     tfts = config;
     createAnimators();
 }
 
 void AnimationsManager::end() {
+    Serial.println("[AnimationsManager] End");
     for(Animator* animator : animators) {
         delete animator;
+        animator = nullptr;
     }
     tfts = nullptr;
 }
@@ -20,6 +23,11 @@ void AnimationsManager::end() {
 void AnimationsManager::loop() {
     if(millis() - millis_last_draw > 175) {
         for (Animator* animator : animators) {
+            if(animator == nullptr)
+            {
+                Serial.println("[AnimationsManager] Error trying to use a nullptr animator");
+                return;
+            }
             if (animator->hasFinish())
                 animator->reset();
             animator->draw();
@@ -107,7 +115,9 @@ void AnimationsManager::createAnimators() {
     if(event == nullptr)
         return;
 
+    Serial.println("[AnimationsManager] Start parsing");
     char ** parsedText = parse(event->message);
+    Serial.println("[AnimationsManager] parsing finish");
     int pixelCount = sizeof(pixels)/sizeof(FramedPixel);
     for(int i = 0 ; i < 6; i ++) {
         animators[i] = new Animator(

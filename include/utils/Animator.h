@@ -51,7 +51,9 @@ public:
     }
 
     ~Animator() {
+        Serial.print("Freeing text resource ..");
         free(text);
+        Serial.println("Freed");
     }
 
     void reset() {

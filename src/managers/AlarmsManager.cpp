@@ -55,7 +55,7 @@ void AlarmsManager::setAlarm(uint8_t index, uint8_t day, uint8_t month, uint16_t
     config->events[index].is_valid = Storage::valid;
 
     Clock::getInstance().saveConfig();
-    update();
+    requireUpdate();
 }
 
 void AlarmsManager::resetAlarm() {
@@ -76,7 +76,7 @@ void AlarmsManager::update() {
             continue;
         }
 
-        Serial.printf("[AlarmsManager] day %d month %d year %d.\n", item.day, item.month, item.year);
+        Serial.printf("[AlarmsManager] day %d month %d year %d. %s\n", item.day, item.month, item.year, item.message);
 
         if(item.day != current_day)
             continue;
