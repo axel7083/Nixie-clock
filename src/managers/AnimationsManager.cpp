@@ -52,6 +52,7 @@ int computeLongerLine(const char *message) {
  * Into 6 char array of len 4.
  * We can display 4 characters per screen, therefore we store them and
  * then send them to the animator.
+ * TODO: EXTENSIVE TESTING ON THIS FUNCTION / Move to utils ?
  */
 char ** parse(const char * message) {
     char ** output = (char **) malloc(6*(sizeof(char *)));
@@ -62,7 +63,7 @@ char ** parse(const char * message) {
     int maxLength = computeLongerLine(message);
     int offset = 0;
     if(maxLength < 12 && (12-maxLength)/4 > 0) {
-        offset = (12-maxLength)/2;
+        offset = (12-maxLength)/2 - maxLength%2;
         for(int i = 0 ; i < offset; i++) {
             output[i][0] = output[i][1] = output[i][2] = output[i][3] = ' ';
         }
@@ -70,27 +71,21 @@ char ** parse(const char * message) {
 
     int defaultLineReturn = 12;
     bool finish = false;
-    for(int i = 0 ; i < 12 ; i++) {
+    for(int i = 0 ; i < 12 - offset; i++) {
         if(!finish && message[i] == '\n') {
             defaultLineReturn = i + 1;
             finish = true;
         }
-
-        if((i+offset) >= 12)
-            break;
-
+        
         if(finish)
             output[(i+offset)/2][i%2] = ' ';
         else
             output[(i+offset)/2][i%2] = message[i];
     }
     finish = false;
-    for(int i = defaultLineReturn; i < defaultLineReturn+12; i++) {
+    for(int i = defaultLineReturn; i < defaultLineReturn+12- offset; i++) {
         if(!finish && message[i] == '\0')
             finish = true;
-
-        if((i+offset)-defaultLineReturn >= 12)
-            break;
 
         if(finish)
             output[((i+offset)-defaultLineReturn)/2][(i+defaultLineReturn%2)%2+2] = ' ';
