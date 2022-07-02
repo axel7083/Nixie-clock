@@ -76,7 +76,7 @@ char ** parse(const char * message) {
             defaultLineReturn = i + 1;
             finish = true;
         }
-        
+
         if(finish)
             output[(i+offset)/2][i%2] = ' ';
         else

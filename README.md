@@ -72,3 +72,30 @@ Paris is +2 Therefore we add 2 hours to the default time:
 ```python
 await client.write_gatt_char("b13c119b-2a41-4c37-8f5e-f9c914566d51", (60*60*2).to_bytes(4, byteorder='big'), response=True)
 ```
+
+## Events
+
+The clock can have up to 5 events. An event has a few attribute
+```C++
+struct Event {
+    uint8_t day;
+    uint8_t month;
+    uint16_t year;
+    char message[24];
+};
+```
+
+The year field is optional, to have a repeating event over the year, you can set the year value to UINT16_MAX (65535).
+To set an event you can use the following command
+```python
+await client.write_gatt_char(
+    "fd82dda7-cc8e-43d2-aa81-48277a63e551", 
+    (4).to_bytes(1, byteorder='big')+ # The index (0 to 4)
+    (2).to_bytes(1, byteorder='big')+ # The day (1 to 31)
+    (7).to_bytes(1, byteorder='big')+ # The month (1 to 12)
+    (65535).to_bytes(3, byteorder='big') + # The year (65532 to ignore it) 
+    "Hello\nWorld".encode(), # The message to display: MUST BE 24 characters or bellow.
+    response=True
+)
+```
+
