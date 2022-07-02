@@ -16,7 +16,7 @@ public:
     void begin(Storage::Config::Alarms* config) override;
     void end() override {};
 
-    void setAlarm(uint8_t *uint8) override;
+    void setAlarm(uint8_t index, uint8_t day, uint8_t month, uint16_t year, char *message) override;
 
     void resetAlarm() override;
 
@@ -24,11 +24,13 @@ public:
         return currentEvent;
     }
 
+
+
+private:
+    void update();
     void setCurrentEvent(Event * e) {
         currentEvent = e;
     }
-
-private:
     unsigned long refresh = 0;
     uint8_t current_day = 0;
     Storage::Config::Alarms* config = nullptr;

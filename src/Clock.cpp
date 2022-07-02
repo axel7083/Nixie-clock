@@ -49,6 +49,7 @@ void Clock::begin() {
     bleManager.addService(&filesManager);
     bleManager.addService(&wifiManager);
     bleManager.addService(&timeManager);
+    bleManager.addService(&alarmsManager);
     bleManager.startAdvertising();
 
     // Save the config (useful when first boot)
@@ -57,6 +58,7 @@ void Clock::begin() {
 
 void Clock::saveConfig() {
     storage.save();
+    Serial.println("[Clock] Config saved");
 }
 
 void Clock::loop() {

@@ -14,7 +14,7 @@ class AlarmsService : public BluetoothService {
 public:
     AlarmsService() : BluetoothService("fd82dda7-cc8e-43d2-aa81-48277a63e550", "AlarmsService") {}
 
-    virtual void setAlarm(uint8_t*) = 0;
+    virtual void setAlarm(uint8_t index, uint8_t day, uint8_t month, uint16_t year, char *message) = 0;
     virtual void resetAlarm() = 0;
 
     void onRead(BLECharacteristic *pCharacteristic) override {
@@ -24,8 +24,14 @@ public:
     void onWrite(BLECharacteristic *pCharacteristic) override {
         std::string rxUUID = pCharacteristic->getUUID().toString();
         Serial.printf("[%s] Received write for %s\n", serviceName, rxUUID.c_str());
-        if(rxUUID == SET_ALARM)
-            setAlarm(pCharacteristic->getData());
+        if(rxUUID == SET_ALARM) {
+            uint8_t* received_data = pCharacteristic->getData();
+            uint8_t index = received_data[0];
+            uint8_t day = received_data[1];
+            uint8_t month = received_data[2];
+            uint16_t year = (received_data[3] << 16) + (received_data[4] << 8) + received_data[5];
+            setAlarm(index, day, month, year, reinterpret_cast<char *>(received_data + 6));
+        }
         else if(rxUUID == RESET_ALARM)
             resetAlarm();
         else
