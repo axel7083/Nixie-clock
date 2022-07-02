@@ -75,9 +75,7 @@ void AlarmsManager::update() {
             Serial.println("[AlarmsManager] Event invalid.");
             continue;
         }
-
-        Serial.printf("[AlarmsManager] day %d month %d year %d. %s\n", item.day, item.month, item.year, item.message);
-
+        
         if(item.day != current_day)
             continue;
 

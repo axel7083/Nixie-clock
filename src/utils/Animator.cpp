@@ -16,22 +16,21 @@ void Animator::draw()  {
     if(hasFinish())
         return;
 
-    if(timeOffset > 0) {
-        timeOffset--;
-        return;
-    }
-
     tfts->chip_select.select(screen);
-    for(int i = 0 ; i < size; i ++) {
-        if(this->framedPixels[i].frame == currentFrame - 1 && this->framedPixels[i].color_next != 255) {
-            drawRect(this->framedPixels[i].x, this->framedPixels[i].y, this->framedPixels[i].color_next);
+    if(timeOffset == 0) {
+        for(int i = 0 ; i < size; i ++) {
+            if(this->framedPixels[i].frame == currentFrame - 1 && this->framedPixels[i].color_next != 255) {
+                drawRect(this->framedPixels[i].x, this->framedPixels[i].y, this->framedPixels[i].color_next);
+            }
+            else if (this->framedPixels[i].frame == currentFrame) {
+                drawRect(this->framedPixels[i].x, this->framedPixels[i].y, this->framedPixels[i].color);
+            }
         }
-        else if (this->framedPixels[i].frame == currentFrame) {
-            drawRect(this->framedPixels[i].x, this->framedPixels[i].y, this->framedPixels[i].color);
-        }
+        currentFrame++;
     }
-
-    currentFrame++;
+    else {
+        timeOffset--;
+    }
 
     tfts->setTextColor(TFT_WHITE);
     tfts->setTextSize(12);

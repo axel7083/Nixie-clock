@@ -11,7 +11,7 @@ void BLEManager::loop() {
         // Making a delay but without blocking the thread.
         if(millis() - timestamp > 500) {
             BLEDevice::startAdvertising();
-            Serial.println("start advertising");
+            Serial.println("[BLEManager] start advertising");
             oldDeviceConnected = deviceConnected;
             timestamp = millis();
         }

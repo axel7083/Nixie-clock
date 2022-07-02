@@ -6,13 +6,11 @@
 #include "Clock.h"
 
 void AnimationsManager::begin(TFTs *config) {
-    Serial.println("[AnimationsManager] begin");
     tfts = config;
     createAnimators();
 }
 
 void AnimationsManager::end() {
-    Serial.println("[AnimationsManager] End");
     for(Animator* animator : animators) {
         delete animator;
         animator = nullptr;
