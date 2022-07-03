@@ -4,6 +4,8 @@
 
 #include "managers/AlarmsManager.h"
 #include "Clock.h"
+#include <sstream>
+#include <iomanip>
 
 static Event defaultEvents[] = {
         {17,2, UINT16_MAX, "Axel's\nBirthday", 0},
@@ -75,7 +77,7 @@ void AlarmsManager::update() {
             Serial.println("[AlarmsManager] Event invalid.");
             continue;
         }
-        
+
         if(item.day != current_day)
             continue;
 
@@ -94,5 +96,36 @@ void AlarmsManager::update() {
         Clock::getInstance().screensManager.setState(ScreensManager::EVENT);
     else if(Clock::getInstance().screensManager.getState() != ScreensManager::OFF)
         Clock::getInstance().screensManager.setState(ScreensManager::CLOCK);
+}
+
+/**
+ * This function return a stringify json array of
+ * the events array stored.
+ */
+std::string AlarmsManager::getAlarms() {
+    std::stringstream stringstream;
+    stringstream << std::dec << std::setfill('0');
+
+    stringstream << "[";
+    bool hasPrevious = false;
+    for(uint8_t i = 0; i < 5; i++) {
+        if (config->events[i].is_valid != Storage::valid)
+            continue;
+        if(hasPrevious)
+            stringstream << ",";
+
+        stringstream << "{" <<
+                     "\"i\":"<< (int)i <<
+                     ",\"d\":"<< (int)config->events[i].day <<
+                     ",\"m\":"<< (int)config->events[i].month <<
+                     ",\"y\":"<< (int)config->events[i].year <<
+                     ",\"t\":\""<< config->events[i].message << "\"}";
+
+        hasPrevious = true;
+    }
+
+    stringstream << "]";
+
+    return stringstream.str();
 }
 

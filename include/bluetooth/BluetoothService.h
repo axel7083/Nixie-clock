@@ -19,7 +19,7 @@ public:
         this->serviceName = serviceName;
     }
     BLEService *initService(BLEServer *server) {
-        Serial.println("[BluetoothService] initService");
+        Serial.printf("[BluetoothService] initService %s\n", serviceName);
 
         service = server->createService(UUID);
         addCharacteristics();
@@ -30,7 +30,6 @@ protected:
     BLEUUID UUID;
     BLEService *service = nullptr;
     BLECharacteristic * createCharacteristic(const char* uuid, uint32_t properties) {
-        Serial.println("[BluetoothService] createCharacteristic");
         BLECharacteristic * characteristic = service->createCharacteristic(
                 uuid,
                 properties

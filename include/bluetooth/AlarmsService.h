@@ -8,17 +8,27 @@
 #include "BluetoothService.h"
 
 #define SET_ALARM               "fd82dda7-cc8e-43d2-aa81-48277a63e551"
-#define RESET_ALARM             "fd82dda7-cc8e-43d2-aa81-48277a63e552"
+#define GET_ALARMS              "fd82dda7-cc8e-43d2-aa81-48277a63e552"
+#define RESET_ALARM             "fd82dda7-cc8e-43d2-aa81-48277a63e553"
 
 class AlarmsService : public BluetoothService {
 public:
     AlarmsService() : BluetoothService("fd82dda7-cc8e-43d2-aa81-48277a63e550", "AlarmsService") {}
 
     virtual void setAlarm(uint8_t index, uint8_t day, uint8_t month, uint16_t year, char *message) = 0;
+    virtual std::string getAlarms() = 0;
     virtual void resetAlarm() = 0;
 
     void onRead(BLECharacteristic *pCharacteristic) override {
-        // Nothing
+        std::string rxUUID = pCharacteristic->getUUID().toString();
+        Serial.printf("[%s] Received read for %s\n", serviceName, rxUUID.c_str());
+        std::string value;
+        if(rxUUID == GET_ALARMS) {
+            value = getAlarms();
+        }
+        else
+            return;
+        pCharacteristic->setValue(value);
     }
 
     void onWrite(BLECharacteristic *pCharacteristic) override {
@@ -42,6 +52,7 @@ private:
         Serial.println("[AlarmsService] addCharacteristics");
 
         createCharacteristic(SET_ALARM, BLECharacteristic::PROPERTY_WRITE);
+        createCharacteristic(GET_ALARMS, BLECharacteristic::PROPERTY_WRITE)->addDescriptor(new BLE2902());
         createCharacteristic(RESET_ALARM, BLECharacteristic::PROPERTY_WRITE);
     }
 

@@ -34,6 +34,11 @@ private:
     void setCurrentEvent(Event * e) {
         currentEvent = e;
     }
+
+public:
+    std::string getAlarms() override;
+
+private:
     unsigned long refresh = 0;
     uint8_t current_day = 0;
     Storage::Config::Alarms* config = nullptr;
