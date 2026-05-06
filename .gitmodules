@@ -1,6 +1,6 @@
 [submodule ".pio/libdeps/esp32dev/Adafruit NeoPixel"]
 	path = .pio/libdeps/esp32dev/Adafruit NeoPixel
-	url = https://github.com/bblanchon/ArduinoJson.git
+	url = https://github.com/adafruit/Adafruit_NeoPixel.git
 [submodule ".pio/libdeps/esp32dev/DS1307RTC"]
 	path = .pio/libdeps/esp32dev/DS1307RTC
 	url = https://github.com/PaulStoffregen/DS1307RTC.git
@@ -22,3 +22,6 @@
 [submodule ".pio/libdeps/esp32dev/Time"]
 	path = .pio/libdeps/esp32dev/Time
 	url = https://github.com/paulstoffregen/Time.git
+[submodule ".pio/libdeps/esp32dev/ArduinoJson"]
+	path = .pio/libdeps/esp32dev/ArduinoJson
+	url = https://github.com/bblanchon/ArduinoJson.git
