@@ -17,7 +17,7 @@ void TimeManager::begin(Storage::Config::Clock* config) {
         this->config->is_valid = Storage::valid;
     }
 
-    //RTC.set(RTC.get() + 60*60);
+    RTC.set(RTC.get() - 60*60);
     setSyncProvider(&TimeManager::syncProvider);
 }
 
@@ -33,7 +33,7 @@ void TimeManager::loop() {
 
     // Every one hour seconds read rtc
     if(millis() - refresh_rtc > 1000*60*60) {
-        setTime(syncProvider());
+        setTime(syncProvider()-60*60);
         refresh_rtc = millis();
     }
 }

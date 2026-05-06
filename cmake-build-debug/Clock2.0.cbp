@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Clock2.0"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="msvc8"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/axels/Documents/github/arduino/Nixie-clock/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Production">
+				<Option working_dir="C:/Users/axels/Documents/github/arduino/Nixie-clock/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 Production"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Debug">
+				<Option working_dir="C:/Users/axels/Documents/github/arduino/Nixie-clock/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 Debug"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Z_DUMMY_TARGET">
+				<Option output="C:/Users/axels/Documents/github/arduino/Nixie-clock/cmake-build-debug/Z_DUMMY_TARGET" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/axels/Documents/github/arduino/Nixie-clock/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 Z_DUMMY_TARGET"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Z_DUMMY_TARGET/fast">
+				<Option output="C:/Users/axels/Documents/github/arduino/Nixie-clock/cmake-build-debug/Z_DUMMY_TARGET" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/axels/Documents/github/arduino/Nixie-clock/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 Z_DUMMY_TARGET/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/axels/Documents/github/arduino/Nixie-clock/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 edit_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/axels/Documents/github/arduino/Nixie-clock/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\axels\Documents\github\arduino\Nixie-clock\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/include/Clock.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/include/animation/firework.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/include/bluetooth/AlarmsService.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/include/bluetooth/BacklightsService.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/include/bluetooth/BluetoothService.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/include/bluetooth/TimeService.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/include/hardware/ChipSelect.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/include/hardware/Hardware.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/include/hardware/TFTs.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/include/managers/AlarmsManager.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/include/managers/AnimationsManager.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/include/managers/BLEManager.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/include/managers/BackLightsManager.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/include/managers/ButtonsManager.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/include/managers/FilesManager.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/include/managers/Manager.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/include/managers/ScreensManager.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/include/managers/TimeManager.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/include/managers/WifiManager.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/include/models/Button.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/include/utils/Animator.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/include/utils/Storage.h">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/src/Clock.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/src/hardware/ChipSelect.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/src/hardware/TFTs.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/src/main.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/src/managers/AlarmsManager.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/src/managers/AnimationsManager.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/src/managers/BLEManager.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/src/managers/BackLightsManager.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/src/managers/ButtonsManager.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/src/managers/FilesManager.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/src/managers/ScreensManager.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/src/managers/TimeManager.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/src/managers/WifiManager.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/src/models/Button.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/src/utils/Animator.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/src/utils/Storage.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/test/test_leds/test_main.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/test/test_screens/test_main.cpp">
+			<Option target="Z_DUMMY_TARGET"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/Users/axels/Documents/github/arduino/Nixie-clock/CMakeListsPrivate.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

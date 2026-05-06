@@ -1,0 +1,5 @@
+C:/Users/axels/Documents/github/arduino/Nixie-clock/cmake-build-debug/CMakeFiles/Production.dir
+C:/Users/axels/Documents/github/arduino/Nixie-clock/cmake-build-debug/CMakeFiles/Debug.dir
+C:/Users/axels/Documents/github/arduino/Nixie-clock/cmake-build-debug/CMakeFiles/Z_DUMMY_TARGET.dir
+C:/Users/axels/Documents/github/arduino/Nixie-clock/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/axels/Documents/github/arduino/Nixie-clock/cmake-build-debug/CMakeFiles/rebuild_cache.dir

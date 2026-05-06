@@ -69,6 +69,8 @@ void Clock::loop() {
     screensManager.loop();
     wifiManager.loop();
     alarmsManager.loop();
+
+    busManager.loop();
 }
 
 

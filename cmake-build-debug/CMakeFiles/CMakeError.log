@@ -1,0 +1,128 @@
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: C:/Users/axels/Documents/github/arduino/Nixie-clock/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):nmake /nologo cmTC_c1805\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\HostX86\x86\nmake.exe"  -f CMakeFiles\cmTC_c1805.dir\build.make /nologo -L                  CMakeFiles\cmTC_c1805.dir\build
+Building C object CMakeFiles/cmTC_c1805.dir/CMakeCCompilerABI.c.obj
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\cl.exe    -o CMakeFiles\cmTC_c1805.dir\CMakeCCompilerABI.c.obj -c "C:\Program Files\JetBrains\CLion 2021.1.2\bin\cmake\win\share\cmake-3.19\Modules\CMakeCCompilerABI.c"
+Compilateur d'optimisation Microsoft (R) C/C++ version 19.29.30141 pour x86
+Copyright (C) Microsoft Corporation. Tous droits réservés.
+
+cl : Ligne de commande warning D9035 : l'option 'o' est déconseillée et sera supprimée dans une version ultérieure
+CMakeCCompilerABI.c
+Linking C executable cmTC_c1805
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\cl.exe "CMakeFiles\cmTC_c1805.dir\CMakeCCompilerABI.c.obj"  -o cmTC_c1805
+Compilateur d'optimisation Microsoft (R) C/C++ version 19.29.30141 pour x86
+Copyright (C) Microsoft Corporation. Tous droits réservés.
+
+cl : Ligne de commande warning D9035 : l'option 'o' est déconseillée et sera supprimée dans une version ultérieure
+Microsoft (R) Incremental Linker Version 14.29.30141.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:CMakeCCompilerABI.c.exe 
+/out:cmTC_c1805.exe 
+CMakeFiles\cmTC_c1805.dir\CMakeCCompilerABI.c.obj 
+LINK : fatal error LNK1181: impossible d'ouvrir le fichier en entrée 'CMakeFiles\cmTC_c1805.dir\CMakeCCompilerABI.c.obj'
+NMAKE : fatal error U1077: 'C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\cl.exe'á: code retour '0x2'
+Stop.
+NMAKE : fatal error U1077: '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\HostX86\x86\nmake.exe"'á: code retour '0x2'
+Stop.
+
+
+
+
+Detecting CXX compiler ABI info failed to compile with the following output:
+Change Dir: C:/Users/axels/Documents/github/arduino/Nixie-clock/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):nmake /nologo cmTC_c30b3\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\HostX86\x86\nmake.exe"  -f CMakeFiles\cmTC_c30b3.dir\build.make /nologo -L                  CMakeFiles\cmTC_c30b3.dir\build
+Building CXX object CMakeFiles/cmTC_c30b3.dir/CMakeCXXCompilerABI.cpp.obj
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\cl.exe    -o CMakeFiles\cmTC_c30b3.dir\CMakeCXXCompilerABI.cpp.obj -c "C:\Program Files\JetBrains\CLion 2021.1.2\bin\cmake\win\share\cmake-3.19\Modules\CMakeCXXCompilerABI.cpp"
+Compilateur d'optimisation Microsoft (R) C/C++ version 19.29.30141 pour x86
+Copyright (C) Microsoft Corporation. Tous droits réservés.
+
+cl : Ligne de commande warning D9035 : l'option 'o' est déconseillée et sera supprimée dans une version ultérieure
+CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_c30b3
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\cl.exe "CMakeFiles\cmTC_c30b3.dir\CMakeCXXCompilerABI.cpp.obj"  -o cmTC_c30b3
+Compilateur d'optimisation Microsoft (R) C/C++ version 19.29.30141 pour x86
+Copyright (C) Microsoft Corporation. Tous droits réservés.
+
+cl : Ligne de commande warning D9035 : l'option 'o' est déconseillée et sera supprimée dans une version ultérieure
+Microsoft (R) Incremental Linker Version 14.29.30141.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:CMakeCXXCompilerABI.cpp.exe 
+/out:cmTC_c30b3.exe 
+CMakeFiles\cmTC_c30b3.dir\CMakeCXXCompilerABI.cpp.obj 
+LINK : fatal error LNK1181: impossible d'ouvrir le fichier en entrée 'CMakeFiles\cmTC_c30b3.dir\CMakeCXXCompilerABI.cpp.obj'
+NMAKE : fatal error U1077: 'C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\cl.exe'á: code retour '0x2'
+Stop.
+NMAKE : fatal error U1077: '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\HostX86\x86\nmake.exe"'á: code retour '0x2'
+Stop.
+
+
+
+
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: C:/Users/axels/Documents/github/arduino/Nixie-clock/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):nmake -f Makefile /nologo cmTC_fa72a\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\HostX86\x86\nmake.exe"  -f CMakeFiles\cmTC_fa72a.dir\build.make /nologo -L                  CMakeFiles\cmTC_fa72a.dir\build
+Building C object CMakeFiles/cmTC_fa72a.dir/CMakeCCompilerABI.c.obj
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\cl.exe    -o CMakeFiles\cmTC_fa72a.dir\CMakeCCompilerABI.c.obj -c C:\Users\axels\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8617.54\bin\cmake\win\x64\share\cmake-3.24\Modules\CMakeCCompilerABI.c
+Compilateur d'optimisation Microsoft (R) C/C++ version 19.29.30141 pour x86
+Copyright (C) Microsoft Corporation. Tous droits réservés.
+
+cl : Ligne de commande warning D9035 : l'option 'o' est déconseillée et sera supprimée dans une version ultérieure
+CMakeCCompilerABI.c
+Linking C executable cmTC_fa72a
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\cl.exe "CMakeFiles\cmTC_fa72a.dir\CMakeCCompilerABI.c.obj"  -o cmTC_fa72a
+Compilateur d'optimisation Microsoft (R) C/C++ version 19.29.30141 pour x86
+Copyright (C) Microsoft Corporation. Tous droits réservés.
+
+cl : Ligne de commande warning D9035 : l'option 'o' est déconseillée et sera supprimée dans une version ultérieure
+Microsoft (R) Incremental Linker Version 14.29.30141.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:CMakeCCompilerABI.c.exe 
+/out:cmTC_fa72a.exe 
+CMakeFiles\cmTC_fa72a.dir\CMakeCCompilerABI.c.obj 
+LINK : fatal error LNK1181: impossible d'ouvrir le fichier en entrée 'CMakeFiles\cmTC_fa72a.dir\CMakeCCompilerABI.c.obj'
+NMAKE : fatal error U1077: 'C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\cl.exe'á: code retour '0x2'
+Stop.
+NMAKE : fatal error U1077: '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\HostX86\x86\nmake.exe"'á: code retour '0x2'
+Stop.
+
+
+
+
+Detecting CXX compiler ABI info failed to compile with the following output:
+Change Dir: C:/Users/axels/Documents/github/arduino/Nixie-clock/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):nmake -f Makefile /nologo cmTC_4e945\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\HostX86\x86\nmake.exe"  -f CMakeFiles\cmTC_4e945.dir\build.make /nologo -L                  CMakeFiles\cmTC_4e945.dir\build
+Building CXX object CMakeFiles/cmTC_4e945.dir/CMakeCXXCompilerABI.cpp.obj
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\cl.exe    -o CMakeFiles\cmTC_4e945.dir\CMakeCXXCompilerABI.cpp.obj -c C:\Users\axels\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8617.54\bin\cmake\win\x64\share\cmake-3.24\Modules\CMakeCXXCompilerABI.cpp
+Compilateur d'optimisation Microsoft (R) C/C++ version 19.29.30141 pour x86
+Copyright (C) Microsoft Corporation. Tous droits réservés.
+
+cl : Ligne de commande warning D9035 : l'option 'o' est déconseillée et sera supprimée dans une version ultérieure
+CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_4e945
+	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\cl.exe "CMakeFiles\cmTC_4e945.dir\CMakeCXXCompilerABI.cpp.obj"  -o cmTC_4e945
+Compilateur d'optimisation Microsoft (R) C/C++ version 19.29.30141 pour x86
+Copyright (C) Microsoft Corporation. Tous droits réservés.
+
+cl : Ligne de commande warning D9035 : l'option 'o' est déconseillée et sera supprimée dans une version ultérieure
+Microsoft (R) Incremental Linker Version 14.29.30141.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:CMakeCXXCompilerABI.cpp.exe 
+/out:cmTC_4e945.exe 
+CMakeFiles\cmTC_4e945.dir\CMakeCXXCompilerABI.cpp.obj 
+LINK : fatal error LNK1181: impossible d'ouvrir le fichier en entrée 'CMakeFiles\cmTC_4e945.dir\CMakeCXXCompilerABI.cpp.obj'
+NMAKE : fatal error U1077: 'C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1429~1.301\bin\Hostx86\x86\cl.exe'á: code retour '0x2'
+Stop.
+NMAKE : fatal error U1077: '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\HostX86\x86\nmake.exe"'á: code retour '0x2'
+Stop.
+
+
+
+

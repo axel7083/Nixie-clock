@@ -1,0 +1,23 @@
+"C:\Program Files\JetBrains\CLion 2021.1.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - NMake Makefiles" C:\Users\axels\Documents\github\arduino\Nixie-clock
+-- The C compiler identification is MSVC 19.29.30141.0
+-- The CXX compiler identification is MSVC 19.29.30141.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - failed
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - failed
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/axels/Documents/github/arduino/Nixie-clock/cmake-build-debug
+
+Cannot get compiler information:
+	Compiler exited with error code 1: C:\Users\axels\.platformio\packages\toolchain-xtensa32\bin\xtensa-esp32-elf-g++.exe @C:\Users\axels\AppData\Local\Temp\response-file10937411932557567698 C:\Users\axels\AppData\Local\Temp\compiler-file11528571650241050796 | @response-file10937411932557567698=/TP -fno-rtti -fno-exceptions -std=gnu++11 -Os -g3 -Wall -nostdlib -Wpointer-arith -Wno-error=unused-but-set-variable -Wno-error=unused-variable -mlongcalls -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -Wno-error=deprecated-declarations -Wno-error=unused-function -Wno-unused-parameter -Wno-sign-compare -fstack-protector -fexceptions -Werror=reorder /Be /Bd /EP
+	xtensa-esp32-elf-g++.exe: error: /TP: No such file or directory
+	xtensa-esp32-elf-g++.exe: error: /Be: No such file or directory
+	xtensa-esp32-elf-g++.exe: error: /Bd: No such file or directory
+	xtensa-esp32-elf-g++.exe: error: /EP: No such file or directory
+	
+	

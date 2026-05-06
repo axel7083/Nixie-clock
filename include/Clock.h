@@ -10,6 +10,7 @@
 #include "managers/TimeManager.h"
 #include "managers/WifiManager.h"
 #include "managers/AnimationsManager.h"
+#include "managers/BusManager.h"
 
 #include "utils/Storage.h"
 #include "managers/AlarmsManager.h"
@@ -36,6 +37,10 @@ class Clock {
         AnimationsManager animationsManager; // No need to call loop() => The ScreenManager will handle this
         FilesManager filesManager; // No need to call loop()
         WifiManager wifiManager; // No need to call loop()
+
+        // Specific case implementation
+        BusManager busManager;
+        
         void begin();
         void loop();
 };

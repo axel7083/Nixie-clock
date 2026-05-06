@@ -96,6 +96,7 @@ void ScreensManager::debug() {
     tfts.printf("Date: %d/%d/%d\n", Clock::getInstance().timeManager.getYear(), Clock::getInstance().timeManager.getMonth(), Clock::getInstance().timeManager.getDay());
 }
 #endif
+
 void ScreensManager::setState(ScreensManager::State s) {
     // if the previous state was fireworks mode
     if(getState() == State::EVENT) {
