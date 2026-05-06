@@ -1,0 +1,24 @@
+[submodule ".pio/libdeps/esp32dev/Adafruit NeoPixel"]
+	path = .pio/libdeps/esp32dev/Adafruit NeoPixel
+	url = https://github.com/bblanchon/ArduinoJson.git
+[submodule ".pio/libdeps/esp32dev/DS1307RTC"]
+	path = .pio/libdeps/esp32dev/DS1307RTC
+	url = https://github.com/PaulStoffregen/DS1307RTC.git
+[submodule ".pio/libdeps/esp32dev/ESP32 BLE Arduino"]
+	path = .pio/libdeps/esp32dev/ESP32 BLE Arduino
+	url = https://github.com/nkolban/ESP32_BLE_Arduino.git
+[submodule ".pio/libdeps/esp32dev/JPEGDecoder"]
+	path = .pio/libdeps/esp32dev/JPEGDecoder
+	url = https://github.com/bodmer/JPEGDecoder.git
+[submodule ".pio/libdeps/esp32dev/LittleFS_esp32"]
+	path = .pio/libdeps/esp32dev/LittleFS_esp32
+	url = https://github.com/lorol/LITTLEFS.git
+[submodule ".pio/libdeps/esp32dev/NTPClient"]
+	path = .pio/libdeps/esp32dev/NTPClient
+	url = https://github.com/arduino-libraries/NTPClient.git
+[submodule ".pio/libdeps/esp32dev/TFT_eSPI"]
+	path = .pio/libdeps/esp32dev/TFT_eSPI
+	url = https://github.com/Bodmer/TFT_eSPI.git
+[submodule ".pio/libdeps/esp32dev/Time"]
+	path = .pio/libdeps/esp32dev/Time
+	url = https://github.com/paulstoffregen/Time.git
